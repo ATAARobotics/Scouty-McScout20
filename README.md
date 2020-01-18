@@ -1,3 +1,2 @@
-# scouty-mcscout19 #
-
-FRC team 4334's and 5015's scouting app.
+# Scouty-McScout20
+ATAA's scouting app for the 2020 season FIRST Infinite Recharge
