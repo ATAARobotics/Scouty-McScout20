@@ -37,87 +37,72 @@ files: |
                 </div>
             </div>
             <div class="col-lg-4 col-md-5 col-7">
-                <label class="mr-sm-2" style="display: block" for="groundIntake">Ground Intake</label>
-                <div id="groundIntake" class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label id="groundIntakeCargo" class="btn btn-secondary">
-                        <input type="radio" value="cargo" name="groundIntake" id="groundIntakeCargo" autocomplete="off">
-                        Cargo
+                <label class="mr-sm-2" style="display: block" for="cellIntake">Intake</label>
+                <div id="cellIntake" class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label id="groundCellIntake" class="btn btn-secondary">
+                        <input type="radio" value="cargo" name="cellIntake" id="groundCellIntake" autocomplete="off">
+                        Ground
                     </label>
-                    <label id="groundIntakeHatch" class="btn btn-secondary">
-                        <input type="radio" value="hatch" name="groundIntake" id="groundIntakeHatch" autocomplete="off">
-                        Hatch
+                    <label id="stationCellIntake" class="btn btn-secondary">
+                        <input type="radio" value="hatch" name="cellIntake" id="stationCellIntake" autocomplete="off">
+                        Station
                     </label>
-                    <label id="groundIntakeBoth" class="btn btn-secondary">
-                        <input type="radio" value="both" name="groundIntake" id="groundIntakeBoth" autocomplete="off">
-                        Both
-                    </label>
-                    <label id="groundIntakeNone" class="btn btn-secondary">
-                        <input type="radio" value="none" name="groundIntake" id="groundIntakeNone" autocomplete="off">
+                    <label id="noCellIntake" class="btn btn-secondary">
+                        <input type="radio" value="both" name="CellIntake" id="noCellIntake" autocomplete="off">
                         None
                     </label>
                 </div>
             </div>
             <div class="col-lg-2 col-md-2 col-4">
-                <label class="mr-sm-2" style="display: block" for="climbLevel">Can Climb to Level:</label>
+                <label class="mr-sm-2" style="display: block" for="climbType">Can Climb and Balance?</label>
                 <div id="climbLevel" class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label id="climbLevel1" class="btn btn-secondary">
-                        <input type="radio" value="1" name="climbLevel" id="climbLevel1" autocomplete="off"> 1
+                    <label id="noClimb" class="btn btn-secondary">
+                        <input type="radio" value="1" name="climbType" id="noClimb" autocomplete="off"> Neither
                     </label>
-                    <label id="climbLevel2" class="btn btn-secondary">
-                        <input type="radio" value="2" name="climbLevel" id="climbLevel2" autocomplete="off"> 2
+                    <label id="onlyClimb" class="btn btn-secondary">
+                        <input type="radio" value="2" name="climbType" id="onlyClimb" autocomplete="off"> Climb
                     </label>
-                    <label id="climbLevel3" class="btn btn-secondary">
-                        <input type="radio" value="3" name="climbLevel" id="climbLevel3" autocomplete="off"> 3
-                    </label>
-                </div>
-            </div>
-            <div class="col-lg-6 col-sm-12 col-12">
-                <label class="mr-sm-2" style="display: block" for="cargoLevel">Max Cargo Level</label>
-                <div id="cargoLevel" class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label id="cargoLevelCargoship" class="btn btn-secondary">
-                        <input type="radio" value="cargoship" name="cargoLevel" id="cargoLevelCargoship" autocomplete="off">
-                        Cargoship
-                    </label>
-                    <label id="cargoLevel1" class="btn btn-secondary">
-                        <input type="radio" value="1" name="cargoLevel" id="cargoLevel1" autocomplete="off">
-                        Rocket 1
-                    </label>
-                    <label id="cargoLevel2" class="btn btn-secondary">
-                        <input type="radio" value="2" name="cargoLevel" id="cargoLevel2" autocomplete="off">
-                        Rocket 2
-                    </label>
-                    <label id="cargoLevel3" class="btn btn-secondary">
-                        <input type="radio" value="3" name="cargoLevel" id="cargoLevel3" autocomplete="off">
-                        Rocket 3
-                    </label>
-                    <label id="cargoLevelNone" class="btn btn-secondary">
-                        <input type="radio" value="none" name="cargoLevel" id="cargoLevelNone" autocomplete="off">
-                        None
+                    <label id="balanceClimb" class="btn btn-secondary">
+                        <input type="radio" value="3" name="climbType" id="balanceClimb" autocomplete="off"> Both
                     </label>
                 </div>
             </div>
-            <div class="col-lg-6 col-sm-12 col-12">
-                <label class="mr-sm-2" style="display: block" for="hatchLevel">Max Hatch Level</label>
-                <div id="hatchLevel" class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label id="hatchLevelCargoship" class="btn btn-secondary">
-                        <input type="radio" value="cargoship" name="hatchLevel" id="hatchLevelCargoship" autocomplete="off">
-                        Cargoship
+            <div class="col-lg-4 col-sm-12 col-12">
+                <label class="mr-sm-2" style="display: block" for="cellLowLevel">Low Goal</label>
+                <div id="cellLowLevel" class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label id="yesCellLow" class="btn btn-secondary">
+                        <input type="radio" value="1" name="cellLowLevel" id="yesCellLow" autocomplete="off">
+                        Yes
                     </label>
-                    <label id="hatchLevel1" class="btn btn-secondary">
-                        <input type="radio" value="1" name="hatchLevel" id="hatchLevel1" autocomplete="off">
-                        Rocket 1
+                    <label id="noCellLow" class="btn btn-secondary">
+                        <input type="radio" value="0" name="cellLowLevel" id="noCellLow" autocomplete="off">
+                        No
                     </label>
-                    <label id="hatchLevel2" class="btn btn-secondary">
-                        <input type="radio" value="2" name="hatchLevel" id="hatchLevel2" autocomplete="off">
-                        Rocket 2
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-12 col-12">
+                <label class="mr-sm-2" style="display: block" for="cellHighLevel">High Goal</label>
+                <div id="cellHighLevel" class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label id="yesCellHigh" class="btn btn-secondary">
+                        <input type="radio" value="1" name="cellHighLevel" id="yesCellHigh" autocomplete="off">
+                        Yes
                     </label>
-                    <label id="hatchLevel3" class="btn btn-secondary">
-                        <input type="radio" value="3" name="hatchLevel" id="hatchLevel3" autocomplete="off">
-                        Rocket 3
+                    <label id="noCellHigh" class="btn btn-secondary">
+                        <input type="radio" value="0" name="cellHighLevel" id="noCellHigh" autocomplete="off">
+                        No
                     </label>
-                    <label id="hatchLevelNone" class="btn btn-secondary">
-                        <input type="radio" value="none" name="hatchLevel" id="hatchLevelNone" autocomplete="off">
-                        None
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-12 col-12">
+                <label class="mr-sm-2" style="display: block" for="cellInnerLevel">Inner Goal</label>
+                <div id="cellInnerLevel" class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label id="yesCellInner" class="btn btn-secondary">
+                        <input type="radio" value="1" name="cellInnerLevel" id="yesCellInner" autocomplete="off">
+                        Yes
+                    </label>
+                    <label id="noCellInner" class="btn btn-secondary">
+                        <input type="radio" value="0" name="cellInnerLevel" id="noCellInner" autocomplete="off">
+                        No
                     </label>
                 </div>
             </div>
