@@ -314,10 +314,10 @@ files: |
                 <label class="mr-sm-2" style="display: block" for="primaryDefense">Primary Defense Bot</label>
                 <div id="primaryDefense" class="btn-group btn-group-toggle" data-toggle="buttons">
                     <label id="primaryDefenseYes" class="btn btn-secondary">
-                        <input type="radio" value="1" name="primaryDefense" id="primaryDefenseYes" autocomplete="off"> 1
+                        <input type="radio" value="1" name="primaryDefense" id="primaryDefenseYes" autocomplete="off"> Yes
                     </label>
                     <label id="primaryDefenseNo" class="btn btn-secondary">
-                        <input type="radio" value="2" name="primaryDefense" id="primaryDefenseNo" autocomplete="off"> 2
+                        <input type="radio" value="2" name="primaryDefense" id="primaryDefenseNo" autocomplete="off"> No
                     </label>
                 </div>
             </div>
