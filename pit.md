@@ -16,7 +16,7 @@ files: |
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-3 col-md-3 col-5">
+            <div class="col-lg-4 col-md-4 col-5">
                 <label class="mr-sm-2" style="display: block" for="robotAppearance">Overall Appearance:</label>
                 <div id="robotAppearance" class="btn-group btn-group-toggle" data-toggle="buttons">
                     <label id="appearance1" class="btn btn-secondary">
@@ -53,7 +53,7 @@ files: |
                     </label>
                 </div>
             </div>
-            <div class="col-lg-2 col-md-2 col-4">
+            <div class="col-lg-4 col-md-5 col-7">
                 <label class="mr-sm-2" style="display: block" for="climbType">Can Climb and Balance?</label>
                 <div id="climbLevel" class="btn-group btn-group-toggle" data-toggle="buttons">
                     <label id="noClimb" class="btn btn-secondary">
@@ -67,7 +67,9 @@ files: |
                     </label>
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-12 col-12">
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-sm-12 col-12">
                 <label class="mr-sm-2" style="display: block" for="cellLowLevel">Low Goal</label>
                 <div id="cellLowLevel" class="btn-group btn-group-toggle" data-toggle="buttons">
                     <label id="yesCellLow" class="btn btn-secondary">
@@ -80,7 +82,7 @@ files: |
                     </label>
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-12 col-12">
+            <div class="col-lg-3 col-sm-12 col-12">
                 <label class="mr-sm-2" style="display: block" for="cellHighLevel">High Goal</label>
                 <div id="cellHighLevel" class="btn-group btn-group-toggle" data-toggle="buttons">
                     <label id="yesCellHigh" class="btn btn-secondary">
@@ -93,7 +95,7 @@ files: |
                     </label>
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-12 col-12">
+            <div class="col-lg-3 col-sm-12 col-12">
                 <label class="mr-sm-2" style="display: block" for="cellInnerLevel">Inner Goal</label>
                 <div id="cellInnerLevel" class="btn-group btn-group-toggle" data-toggle="buttons">
                     <label id="yesCellInner" class="btn btn-secondary">
@@ -105,6 +107,11 @@ files: |
                         No
                     </label>
                 </div>
+            </div>
+            <div class="col-lg-3 col-sm-12 col-12">
+                <label class="mr-sm-2" for="robotWeight">Robot Weight (lbs, with bumpers)</label>
+                <input id="robotWeight" maxlength="3" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                    autocomplete="off" type="tel" class="form-control" placeholder="Robot Weight">
             </div>
         </div>
         <div class="row">
