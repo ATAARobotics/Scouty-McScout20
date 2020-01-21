@@ -102,13 +102,18 @@ document.addEventListener('deviceready', async function () {
 
         var startingLocation = parseInt($('input[name=startingLocation]:checked').val());
         var movedBaseline = parseInt($('input[name=movedBaseline]:checked').val());
+        var autoCellsPickup = parseInt($('#cellPickup').val());
+        var autoCellsDropped = parseInt($('#cellsDropped').val());
+        var autoCellsLow = parseInt($('#cellsLow').val());
+        var autoCellsHigh = parseInt($('#cellsHigh').val());
+        var autoCellsInner = parseInt($('#cellsInner').val());
         var autoComments = $('#autoCommentSection').val();        
 
-        var cellsPickup = parseInt($('#cellPickup').val());
-        var cellsDropped = parseInt($('#cellsDropped').val());
-        var cellsLow = parseInt($('#cellsLow').val());
-        var cellsHigh = parseInt($('#cellsHigh').val());
-        var cellsInner = parseInt($('#cellsInner').val());
+        var teleopCellsPickup = parseInt($('#cellPickup').val());
+        var teleopCellsDropped = parseInt($('#cellsDropped').val());
+        var teleopCellsLow = parseInt($('#cellsLow').val());
+        var teleopCellsHigh = parseInt($('#cellsHigh').val());
+        var teleopCellsInner = parseInt($('#cellsInner').val());
         var rotationControl = parseInt($('input[name=rotationControl]:checked').val());
         var positionControl = parseInt($('input[name=positionControl]:checked').val());
         var teleopComments = $('#teleopCommentSection').val();
@@ -129,14 +134,18 @@ document.addEventListener('deviceready', async function () {
         var doc = {
             _id: `${matchType}${matchNumber}_${teamNumber}`,
             scoutName: localStorage.getItem('scoutName'),
-            startingLocation: startingLevel,
-            movedBaseline: crossedBaseline,
-            autoComments: autoComments,
-            cellsPickup: cellsPickup,
-            cellsDropped: cellsDropped,
-            cellsLow: cellsLow,
-            cellsHigh: cellsHigh,
-            cellsInner: cellsInner,
+            startingLocation: startingLocation,
+            movedBaseline: movedBaseline,
+            autoCellsPickup: autoCellsPickup,
+            autoCellsDropped: autoCellsDropped,
+            autoCellsLow: autoCellsLow,
+            autoCellsHigh: autoCellsHigh,
+            autoCellsInner: autoCellsInner,
+            teleopCellsPickup: teleopCellsPickup,
+            teleopCellsDropped: teleopCellsDropped,
+            teleopCellsLow: teleopCellsLow,
+            teleopCellsHigh: teleopCellsHigh,
+            teleopCellsInner: teleopCellsInner,
             rotationControl: rotationControl,
             positionControl: positionControl,
             teleopComments: teleopComments,
@@ -182,62 +191,122 @@ document.addEventListener('deviceready', async function () {
     }
 });
 
-function modifyPickup_qty(val) {
-	var qty = document.getElementById('cellsPickup').value;
+function modifyAutoPickup_qty(val) {
+	var qty = document.getElementById('autoCellsPickup').value;
 	var new_qty = parseInt(qty, 10) + parseInt(val, 10);
 
 	if (new_qty < 0) {
 		new_qty = 0;
 	}
 
-	document.getElementById('cellsPickup').value = new_qty;
+	document.getElementById('autoCellsPickup').value = new_qty;
 	return new_qty;
 }
 
-function modifyDrop_qty(val) {
-	var qty = document.getElementById('cellsDropped').value;
+function modifyAutoDrop_qty(val) {
+	var qty = document.getElementById('autoCellsDropped').value;
 	var new_qty = parseInt(qty, 10) + parseInt(val, 10);
 
 	if (new_qty < 0) {
 		new_qty = 0;
 	}
 
-	document.getElementById('cellsDropped').value = new_qty;
+	document.getElementById('autoCellsDropped').value = new_qty;
 	return new_qty;
 }
 
-function modifyLow_qty(val) {
-	var qty = document.getElementById('cellsLow').value;
+function modifyAutoLow_qty(val) {
+	var qty = document.getElementById('autoCellsLow').value;
 	var new_qty = parseInt(qty, 10) + parseInt(val, 10);
 
 	if (new_qty < 0) {
 		new_qty = 0;
 	}
 
-	document.getElementById('cellsLow').value = new_qty;
+	document.getElementById('autoCellsLow').value = new_qty;
 	return new_qty;
 }
 
-function modifyHigh_qty(val) {
-	var qty = document.getElementById('cellsHigh').value;
+function modifyAutoHigh_qty(val) {
+	var qty = document.getElementById('autoCellsHigh').value;
 	var new_qty = parseInt(qty, 10) + parseInt(val, 10);
 
 	if (new_qty < 0) {
 		new_qty = 0;
 	}
 
-	document.getElementById('cellsHigh').value = new_qty;
+	document.getElementById('autoCellsHigh').value = new_qty;
 	return new_qty;
 }
 
-function modifyInner_qty(val) {
-	var qty = document.getElementById('cellsInner').value;
+function modifyAutoInner_qty(val) {
+	var qty = document.getElementById('autoCellsInner').value;
 	var new_qty = parseInt(qty, 10) + parseInt(val, 10);
 
 	if (new_qty < 0) {
 		new_qty = 0;
 	}
 
-	document.getElementById('cellsInner').value = new_qty;
+	document.getElementById('autoCellsInner').value = new_qty;
+	return new_qty;
+}
+
+function modifyTeleopPickup_qty(val) {
+	var qty = document.getElementById('teleopCellsPickup').value;
+	var new_qty = parseInt(qty, 10) + parseInt(val, 10);
+
+	if (new_qty < 0) {
+		new_qty = 0;
+	}
+
+	document.getElementById('teleopCellsPickup').value = new_qty;
+	return new_qty;
+}
+
+function modifyTeleopDrop_qty(val) {
+	var qty = document.getElementById('teleopCellsDropped').value;
+	var new_qty = parseInt(qty, 10) + parseInt(val, 10);
+
+	if (new_qty < 0) {
+		new_qty = 0;
+	}
+
+	document.getElementById('teleopCellsDropped').value = new_qty;
+	return new_qty;
+}
+
+function modifyTeleopLow_qty(val) {
+	var qty = document.getElementById('teleopCellsLow').value;
+	var new_qty = parseInt(qty, 10) + parseInt(val, 10);
+
+	if (new_qty < 0) {
+		new_qty = 0;
+	}
+
+	document.getElementById('teleopCellsLow').value = new_qty;
+	return new_qty;
+}
+
+function modifyTeleopHigh_qty(val) {
+	var qty = document.getElementById('teleopCellsHigh').value;
+	var new_qty = parseInt(qty, 10) + parseInt(val, 10);
+
+	if (new_qty < 0) {
+		new_qty = 0;
+	}
+
+	document.getElementById('teleopCellsHigh').value = new_qty;
+	return new_qty;
+}
+
+function modifyTeleopInner_qty(val) {
+	var qty = document.getElementById('teleopCellsInner').value;
+	var new_qty = parseInt(qty, 10) + parseInt(val, 10);
+
+	if (new_qty < 0) {
+		new_qty = 0;
+	}
+
+	document.getElementById('teleopCellsInner').value = new_qty;
 	return new_qty;
 }

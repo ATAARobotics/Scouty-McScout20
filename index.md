@@ -63,6 +63,83 @@ files: |
                 </div>
             </div>
         </div>
+        <div class="row" style="margin-bottom: 15px">
+            <div class="col-lg col-md-3 col-sm-4 col-6">
+				<div class="row">
+					<div class="col-md">
+						<label style="margin-bottom: 0px" for="autoCellsPickup">Cells Picked Up</label>
+					</div>
+				</div>
+				<div class="row" style="margin-top:15px">
+					<div class="col-md input-group">
+						<a onclick="modifyAutoPickup_qty(-1)" class="btn btn-danger btn-lg" style="width: 50px; height: 50px; margin-right: 15px;" role="button">-</a>
+						<input id="autoCellsPickup" maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57' autocomplete="off"
+						 type="tel" class="form-control" value="0">
+						<a onclick="modifyAutoPickup_qty(1)" class="btn btn-success btn-lg" style="width: 50px; height: 50px; margin-left: 15px;" role="button">+</a>
+					</div>
+				</div>
+			</div>
+            <div class="col-lg col-md-3 col-sm-4 col-6">
+				<div class="row">
+					<div class="col-md">
+						<label style="margin-bottom: 0px" for="autoCellsDropped">Cells Dropped</label>
+					</div>
+				</div>
+				<div class="row" style="margin-top:15px">
+					<div class="col-md input-group">
+						<a onclick="modifyAutoDrop_qty(-1)" class="btn btn-danger btn-lg" style="width: 50px; height: 50px; margin-right: 15px;" role="button">-</a>
+						<input id="autoCellsDropped" maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57' autocomplete="off"
+						 type="tel" class="form-control" value="0">
+						<a onclick="modifyAutoDrop_qty(1)" class="btn btn-success btn-lg" style="width: 50px; height: 50px; margin-left: 15px;" role="button">+</a>
+					</div>
+				</div>
+			</div>
+            <div class="col-lg col-md-3 col-sm-4 col-6">
+				<div class="row">
+					<div class="col-md">
+						<label style="margin-bottom: 0px" for="autoCellsLow">Cells in Low Goal</label>
+					</div>
+				</div>
+				<div class="row" style="margin-top:15px">
+					<div class="col-md input-group">
+						<a onclick="modifyAutoLow_qty(-1)" class="btn btn-danger btn-lg" style="width: 50px; height: 50px; margin-right: 15px;" role="button">-</a>
+						<input id="autoCellsLow" maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57' autocomplete="off"
+						 type="tel" class="form-control" value="0">
+						<a onclick="modifyAutoLow_qty(1)" class="btn btn-success btn-lg" style="width: 50px; height: 50px; margin-left: 15px;" role="button">+</a>
+					</div>
+				</div>
+			</div>
+            <div class="col-lg col-md-3 col-sm-4 col-6">
+				<div class="row">
+					<div class="col-md">
+						<label style="margin-bottom: 0px" for="autoCellsHigh">Cells in High Goal</label>
+					</div>
+				</div>
+				<div class="row" style="margin-top:15px">
+					<div class="col-md input-group">
+						<a onclick="modifyAutoHigh_qty(-1)" class="btn btn-danger btn-lg" style="width: 50px; height: 50px; margin-right: 15px;" role="button">-</a>
+						<input id="autoCellsHigh" maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57' autocomplete="off"
+						 type="tel" class="form-control" value="0">
+						<a onclick="modifyAutoHigh_qty(1)" class="btn btn-success btn-lg" style="width: 50px; height: 50px; margin-left: 15px;" role="button">+</a>
+					</div>
+				</div>
+			</div>
+            <div class="col-lg col-md-3 col-sm-4 col-6">
+				<div class="row">
+					<div class="col-md">
+						<label style="margin-bottom: 0px" for="autoCellsInner">Cells in Inner Goal</label>
+					</div>
+				</div>
+				<div class="row" style="margin-top:15px">
+					<div class="col-md input-group">
+						<a onclick="modifyAutoInner_qty(-1)" class="btn btn-danger btn-lg" style="width: 50px; height: 50px; margin-right: 15px;" role="button">-</a>
+						<input id="autoCellsInner" maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57' autocomplete="off"
+						 type="tel" class="form-control" value="0">
+						<a onclick="modifyAutoInner_qty(1)" class="btn btn-success btn-lg" style="width: 50px; height: 50px; margin-left: 15px;" role="button">+</a>
+					</div>
+				</div>
+			</div>
+        </div>
         <div class="row">
             <div class="col">
                 <label class="mr-sm-2" style="display: block" for="autoCommentSection">Auto Notes and Comments</label>
@@ -79,75 +156,75 @@ files: |
                 <div class="col-lg col-md-3 col-sm-4 col-6">
 				<div class="row">
 					<div class="col-md">
-						<label style="margin-bottom: 0px" for="cellsPickup">Cells Picked Up</label>
+						<label style="margin-bottom: 0px" for="teleopCellsPickup">Cells Picked Up</label>
 					</div>
 				</div>
 				<div class="row" style="margin-top:15px">
 					<div class="col-md input-group">
-						<a onclick="modifyPickup_qty(-1)" class="btn btn-danger btn-lg" style="width: 50px; height: 50px; margin-right: 15px;" role="button">-</a>
-						<input id="cellsPickup" maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57' autocomplete="off"
+						<a onclick="modifyTeleopPickup_qty(-1)" class="btn btn-danger btn-lg" style="width: 50px; height: 50px; margin-right: 15px;" role="button">-</a>
+						<input id="teleopCellsPickup" maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57' autocomplete="off"
 						 type="tel" class="form-control" value="0">
-						<a onclick="modifyPickup_qty(1)" class="btn btn-success btn-lg" style="width: 50px; height: 50px; margin-left: 15px;" role="button">+</a>
+						<a onclick="modifyTeleopPickup_qty(1)" class="btn btn-success btn-lg" style="width: 50px; height: 50px; margin-left: 15px;" role="button">+</a>
 					</div>
 				</div>
 			</div>
             <div class="col-lg col-md-3 col-sm-4 col-6">
 				<div class="row">
 					<div class="col-md">
-						<label style="margin-bottom: 0px" for="cellsDropped">Cells Dropped</label>
+						<label style="margin-bottom: 0px" for="teleopCellsDropped">Cells Dropped</label>
 					</div>
 				</div>
 				<div class="row" style="margin-top:15px">
 					<div class="col-md input-group">
-						<a onclick="modifyDrop_qty(-1)" class="btn btn-danger btn-lg" style="width: 50px; height: 50px; margin-right: 15px;" role="button">-</a>
-						<input id="cellsDropped" maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57' autocomplete="off"
+						<a onclick="modifyTeleopDrop_qty(-1)" class="btn btn-danger btn-lg" style="width: 50px; height: 50px; margin-right: 15px;" role="button">-</a>
+						<input id="teleopCellsDropped" maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57' autocomplete="off"
 						 type="tel" class="form-control" value="0">
-						<a onclick="modifyDrop_qty(1)" class="btn btn-success btn-lg" style="width: 50px; height: 50px; margin-left: 15px;" role="button">+</a>
+						<a onclick="modifyTeleopDrop_qty(1)" class="btn btn-success btn-lg" style="width: 50px; height: 50px; margin-left: 15px;" role="button">+</a>
 					</div>
 				</div>
 			</div>
             <div class="col-lg col-md-3 col-sm-4 col-6">
 				<div class="row">
 					<div class="col-md">
-						<label style="margin-bottom: 0px" for="cellsLow">Cells in Low Goal</label>
+						<label style="margin-bottom: 0px" for="teleopCellsLow">Cells in Low Goal</label>
 					</div>
 				</div>
 				<div class="row" style="margin-top:15px">
 					<div class="col-md input-group">
-						<a onclick="modifyLow_qty(-1)" class="btn btn-danger btn-lg" style="width: 50px; height: 50px; margin-right: 15px;" role="button">-</a>
-						<input id="cellsLow" maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57' autocomplete="off"
+						<a onclick="modifyTeleopLow_qty(-1)" class="btn btn-danger btn-lg" style="width: 50px; height: 50px; margin-right: 15px;" role="button">-</a>
+						<input id="teleopCellsLow" maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57' autocomplete="off"
 						 type="tel" class="form-control" value="0">
-						<a onclick="modifyLow_qty(1)" class="btn btn-success btn-lg" style="width: 50px; height: 50px; margin-left: 15px;" role="button">+</a>
+						<a onclick="modifyTeleopLow_qty(1)" class="btn btn-success btn-lg" style="width: 50px; height: 50px; margin-left: 15px;" role="button">+</a>
 					</div>
 				</div>
 			</div>
             <div class="col-lg col-md-3 col-sm-4 col-6">
 				<div class="row">
 					<div class="col-md">
-						<label style="margin-bottom: 0px" for="cellsHigh">Cells in High Goal</label>
+						<label style="margin-bottom: 0px" for="teleopCellsHigh">Cells in High Goal</label>
 					</div>
 				</div>
 				<div class="row" style="margin-top:15px">
 					<div class="col-md input-group">
-						<a onclick="modifyHigh_qty(-1)" class="btn btn-danger btn-lg" style="width: 50px; height: 50px; margin-right: 15px;" role="button">-</a>
-						<input id="cellsHigh" maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57' autocomplete="off"
+						<a onclick="modifyTeleopHigh_qty(-1)" class="btn btn-danger btn-lg" style="width: 50px; height: 50px; margin-right: 15px;" role="button">-</a>
+						<input id="teleopCellsHigh" maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57' autocomplete="off"
 						 type="tel" class="form-control" value="0">
-						<a onclick="modifyHigh_qty(1)" class="btn btn-success btn-lg" style="width: 50px; height: 50px; margin-left: 15px;" role="button">+</a>
+						<a onclick="modifyTeleopHigh_qty(1)" class="btn btn-success btn-lg" style="width: 50px; height: 50px; margin-left: 15px;" role="button">+</a>
 					</div>
 				</div>
 			</div>
             <div class="col-lg col-md-3 col-sm-4 col-6">
 				<div class="row">
 					<div class="col-md">
-						<label style="margin-bottom: 0px" for="cellsInner">Cells in Inner Goal</label>
+						<label style="margin-bottom: 0px" for="teleopCellsInner">Cells in Inner Goal</label>
 					</div>
 				</div>
 				<div class="row" style="margin-top:15px">
 					<div class="col-md input-group">
-						<a onclick="modifyInner_qty(-1)" class="btn btn-danger btn-lg" style="width: 50px; height: 50px; margin-right: 15px;" role="button">-</a>
-						<input id="cellsInner" maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57' autocomplete="off"
+						<a onclick="modifyTeleopInner_qty(-1)" class="btn btn-danger btn-lg" style="width: 50px; height: 50px; margin-right: 15px;" role="button">-</a>
+						<input id="teleopCellsInner" maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57' autocomplete="off"
 						 type="tel" class="form-control" value="0">
-						<a onclick="modifyInner_qty(1)" class="btn btn-success btn-lg" style="width: 50px; height: 50px; margin-left: 15px;" role="button">+</a>
+						<a onclick="modifyTeleopInner_qty(1)" class="btn btn-success btn-lg" style="width: 50px; height: 50px; margin-left: 15px;" role="button">+</a>
 					</div>
 				</div>
 			</div>
