@@ -291,33 +291,33 @@ files: |
                 </div>
             </div>
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-6">
-                <label class="mr-sm-2" style="display: block" for="defenceRating">Defence</label>
-                <div id="defenceRating" class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label id="defence1" class="btn btn-secondary">
-                        <input type="radio" value="1" name="defenceRating" id="defence1" autocomplete="off"> 1
+                <label class="mr-sm-2" style="display: block" for="defenseRating">Defense</label>
+                <div id="defenseRating" class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label id="defense1" class="btn btn-secondary">
+                        <input type="radio" value="1" name="defesnseRating" id="defense1" autocomplete="off"> 1
                     </label>
-                    <label id="defence2" class="btn btn-secondary">
-                        <input type="radio" value="2" name="defenceRating" id="defence2" autocomplete="off"> 2
+                    <label id="defense2" class="btn btn-secondary">
+                        <input type="radio" value="2" name="defenseRating" id="defense2" autocomplete="off"> 2
                     </label>
-                    <label id="defence3" class="btn btn-secondary">
-                        <input type="radio" value="3" name="defenceRating" id="defence3" autocomplete="off"> 3
+                    <label id="defense3" class="btn btn-secondary">
+                        <input type="radio" value="3" name="defenseRating" id="defense3" autocomplete="off"> 3
                     </label>
-                    <label id="defence4" class="btn btn-secondary">
-                        <input type="radio" value="4" name="defenceRating" id="defence4" autocomplete="off"> 4
+                    <label id="defense4" class="btn btn-secondary">
+                        <input type="radio" value="4" name="defenseRating" id="defense4" autocomplete="off"> 4
                     </label>
-                    <label id="defence5" class="btn btn-secondary">
-                        <input type="radio" value="5" name="defenceRating" id="defence5" autocomplete="off"> 5
+                    <label id="defense5" class="btn btn-secondary">
+                        <input type="radio" value="5" name="defenseRating" id="defense5" autocomplete="off"> 5
                     </label>
                 </div>
             </div>
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-6">
-                <label class="mr-sm-2" style="display: block" for="primaryDefence">Primary Defence Bot</label>
-                <div id="primaryDefence" class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label id="primaryDefenceYes" class="btn btn-secondary">
-                        <input type="radio" value="1" name="primaryDefence" id="primaryDefenceYes" autocomplete="off"> 1
+                <label class="mr-sm-2" style="display: block" for="primaryDefense">Primary Defense Bot</label>
+                <div id="primaryDefense" class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label id="primaryDefenseYes" class="btn btn-secondary">
+                        <input type="radio" value="1" name="primaryDefense" id="primaryDefenseYes" autocomplete="off"> 1
                     </label>
-                    <label id="primaryDefenceNo" class="btn btn-secondary">
-                        <input type="radio" value="2" name="primaryDefence" id="primaryDefenceNo" autocomplete="off"> 2
+                    <label id="primaryDefenseNo" class="btn btn-secondary">
+                        <input type="radio" value="2" name="primaryDefense" id="primaryDefenseNo" autocomplete="off"> 2
                     </label>
                 </div>
             </div>
