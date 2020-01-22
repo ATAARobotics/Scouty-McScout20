@@ -85,12 +85,18 @@ document.addEventListener('deviceready', async function () {
     }
     function show(doc) {
         var robotAppearance = doc.robotAppearance;
-        var groundIntake = doc.groundIntake;
-        var climbLevel = doc.climbLevel;
-        var cargoLevel = doc.cargoLevel;
-        var hatchLevel = doc.hatchLevel;
+
+       
         var robotDone = doc.robotDone;
         var robotBroken = doc.robotBroken;
+        var cellIntake = doc.cellIntake,
+        var climbType = doc.climbType,
+        var robotCapacity = doc.robotCapacity,
+        var cellLowLevel = doc.cellLowLevel,
+        var cellHighLevel = doc.cellHighLevel,
+        var cellInnerLevel = doc.cellInnerLevel,
+        var robotWeight = doc.robotWeight,
+
         var robotPhoto1Url = URL.createObjectURL(doc._attachments['photo1.jpg'].data);
         var robotPhoto2Url = URL.createObjectURL(doc._attachments['photo2.jpg'].data);
         var comments = doc.comments;
@@ -101,25 +107,34 @@ document.addEventListener('deviceready', async function () {
         document.getElementById("robotPhoto2Preview").style.display = "block";
         $("input[name=robotAppearance][value=" + robotAppearance + "]").prop('checked', true);
         $('#' + $('input[name=robotAppearance]:checked').attr("id")).addClass('active');
-        $("input[name=groundIntake][value=" + groundIntake + "]").prop('checked', true);
-        $('#' + $('input[name=groundIntake]:checked').attr("id")).addClass('active');
-        $("input[name=climbLevel][value=" + climbLevel + "]").prop('checked', true);
-        $('#' + $('input[name=climbLevel]:checked').attr("id")).addClass('active');
-        $("input[name=cargoLevel][value=" + cargoLevel + "]").prop('checked', true);
-        $('#' + $('input[name=cargoLevel]:checked').attr("id")).addClass('active');
-        $("input[name=hatchLevel][value=" + hatchLevel + "]").prop('checked', true);
-        $('#' + $('input[name=hatchLevel]:checked').attr("id")).addClass('active');
+        $("input[name=callIntake][value=" + cellIntake + "]").prop('checked', true);
+        $('#' + $('input[name=cellIntake]:checked').attr("id")).addClass('active');
+        $("input[name=climbType][value=" + climbType + "]").prop('checked', true);
+        $('#' + $('input[name=climbType]:checked').attr("id")).addClass('active');
+        $("input[name=robotcapacity][value=" + robotCapacity + "]").prop('checked', true);
+        $('#' + $('input[name=robotCapacity]:checked').attr("id")).addClass('active');
+        $("input[name=cellLowLevel][value=" + cellLowLevel + "]").prop('checked', true);
+        $('#' + $('input[name=cellLowlevel]:checked').attr("id")).addClass('active');
+        $("input[name=cellHighLevel][value=" + cellHighLevel + "]").prop('checked', true);
+        $('#' + $('input[name=cellHighLevel]:checked').attr("id")).addClass('active');
+        $("input[name=cellInnerLevel][value=" + cellInnerLevel + "]").prop('checked', true);
+        $('#' + $('input[name=cellInnerLevel]:checked').attr("id")).addClass('active');
+        $("input[name=robotWeight][value=" + robotWeight + "]").prop('checked', true);
+        $('#' + $('input[name=robotWeight]:checked').attr("id")).addClass('active');
         $("input[name=robotDone][value=" + robotDone + "]").prop('checked', true);
         $('#' + $('input[name=robotDone]:checked').attr("id")).addClass('active');
         $("input[name=robotBroken][value=" + robotBroken + "]").prop('checked', true);
         $('#' + $('input[name=robotBroken]:checked').attr("id")).addClass('active');
     }
     function hide() {
+        $('#' + $('input[name=cellIntake]:checked').attr("id")).removeClass('active');
+        $('#' + $('input[name=climbType]:checked').attr("id")).removeClass('active');
+        $('#' + $('input[name=robotCapacity]:checked').attr("id")).removeClass('active');
+        $('#' + $('input[name=cellLowLevel]:checked').attr("id")).removeClass('active');
+        $('#' + $('input[name=cellHighLevel]:checked').attr("id")).removeClass('active');
+        $('#' + $('input[name=cellInnerLevel]:checked').attr("id")).removeClass('active');
+        $('#' + $('input[name=robotWeight]:checked').attr("id")).removeClass('active');
         $('#' + $('input[name=robotAppearance]:checked').attr("id")).removeClass('active');
-        $('#' + $('input[name=groundIntake]:checked').attr("id")).removeClass('active');
-        $('#' + $('input[name=climbLevel]:checked').attr("id")).removeClass('active');
-        $('#' + $('input[name=cargoLevel]:checked').attr("id")).removeClass('active');
-        $('#' + $('input[name=hatchLevel]:checked').attr("id")).removeClass('active');
         $('#' + $('input[name=robotDone]:checked').attr("id")).removeClass('active');
         $('#' + $('input[name=robotBroken]:checked').attr("id")).removeClass('active');
         $('#commentSection').val('');
@@ -134,10 +149,13 @@ document.addEventListener('deviceready', async function () {
         var teamNumber = $('#teamNumber').val();
         var scoutName = localStorage.getItem('scoutName');
         var robotAppearance = parseInt($('input[name=robotAppearance]:checked').val());
-        var groundIntake = $('input[name=groundIntake]:checked').val();
-        var climbLevel = parseInt($('input[name=climbLevel]:checked').val());
-        var cargoLevel = $('input[name=cargoLevel]:checked').val();
-        var hatchLevel = $('input[name=hatchLevel]:checked').val();
+        var cellIntake = parseInt($('input[name=cellIntake]:checked').val());
+        var climbType = parseInt($('input[name=climbType]:checked').val());
+        var robotCapacity = parseInt($('input[name=robotCapacity]:checked').val());
+        var cellLowLevel = parseInt($('input[name=cellLowLevel]:checked').val());
+        var cellHighLevel = parseInt($('input[name=cellHighLevel]:checked').val());
+        var cellInnerLevel = parseInt($('input[name=cellInnerLevel]:checked').val());
+        var robotWeight = parseInt($('input[name=robotWeight]:checked').val());
         var robotDone = parseInt($('input[name=robotDone]:checked').val());
         var robotBroken = parseInt($('input[name=robotBroken]:checked').val());
         var comments = $('#commentSection').val();
@@ -155,16 +173,20 @@ document.addEventListener('deviceready', async function () {
             },
             scoutName: scoutName,
             robotAppearance: robotAppearance,
-            groundIntake: groundIntake,
-            climbLevel: climbLevel,
-            cargoLevel: cargoLevel,
-            hatchLevel: hatchLevel,
+            cellIntake: cellIntake,
+            climbType: climbType,
+            robotCapacity: robotCapacity,
+            cellLowLevel: cellLowLevel,
+            cellHighLevel: cellHighLevel,
+            cellInnerLevel: cellInnerLevel,
+            robotWeight: robotWeight,
             robotDone: robotDone,
             robotBroken: robotBroken,
             comments: comments
+
         }
         if (localStorage.getItem('settingsCheck') == 1) {
-            if (teamNumber && robotAppearance != NaN && groundIntake && climbLevel != NaN && cargoLevel && hatchLevel && robotDone != NaN && robotBroken != NaN) {
+            if (teamNumber && robotAppearance != NaN && cellIntake && climbType != NaN && robotCapacity && cellLowLevel && cellHighLevel && cellInnerLevel && robotWeight && robotDone != NaN && robotBroken != NaN) {
                 try {
                     let docPut = await db.put(doc);
                     window.alert("Submitted!");
