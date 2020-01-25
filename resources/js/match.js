@@ -183,12 +183,6 @@ document.addEventListener('deviceready', async function () {
                     if (err.status == 409) {
                         let old = await db.get(`${matchType}${matchNumber}_${teamNumber}`);
                         doc._rev = old._rev;
-                        if (old.crossedBaselineTime) {
-                            doc.crossedBaselineTime = old.crossedBaselineTime;
-                        }
-                        doc.teleopCargoTime = old.teleopCargoTime;
-                        doc.teleopHatchTime = old.teleopHatchTime;
-                        doc.climbingTime = old.climbingTime;
                         let newDoc = await db.put(doc, {force: true});
                         window.alert("Updated!");
                         window.location.reload();
