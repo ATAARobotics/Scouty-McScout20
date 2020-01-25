@@ -85,18 +85,15 @@ document.addEventListener('deviceready', async function () {
     }
     function show(doc) {
         var robotAppearance = doc.robotAppearance;
-
-       
         var robotDone = doc.robotDone;
         var robotBroken = doc.robotBroken;
-        var cellIntake = doc.cellIntake,
-        var climbType = doc.climbType,
-        var robotCapacity = doc.robotCapacity,
-        var cellLowLevel = doc.cellLowLevel,
-        var cellHighLevel = doc.cellHighLevel,
-        var cellInnerLevel = doc.cellInnerLevel,
-        var robotWeight = doc.robotWeight,
-
+        var cellIntake = doc.cellIntake;
+        var climbType = doc.climbType;
+        var robotCapacity = doc.robotCapacity;
+        var cellLowLevel = doc.cellLowLevel;
+        var cellHighLevel = doc.cellHighLevel;
+        var cellInnerLevel = doc.cellInnerLevel;
+        var robotWeight = doc.robotWeight;
         var robotPhoto1Url = URL.createObjectURL(doc._attachments['photo1.jpg'].data);
         var robotPhoto2Url = URL.createObjectURL(doc._attachments['photo2.jpg'].data);
         var comments = doc.comments;

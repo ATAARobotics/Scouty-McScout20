@@ -139,12 +139,21 @@ files: |
 					</div>
 				</div>
 			</div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <label class="mr-sm-2" style="display: block" for="autoCommentSection">Auto Notes and Comments</label>
-                <textarea autocomplete="off" style="width: 100%; height:100px" id="autoCommentSection"></textarea>
-            </div>
+            <div class="col-lg col-md-3 col-sm-4 col-6">
+				<div class="row">
+					<div class="col-md">
+						<label style="margin-bottom: 0px" for="autoCellsAssist">Cells Assisted</label>
+					</div>
+				</div>
+				<div class="row" style="margin-top:15px">
+					<div class="col-md input-group">
+						<a onclick="modifyAutoAssist_qty(-1)" class="btn btn-danger btn-lg" style="width: 50px; height: 50px; margin-right: 15px;" role="button">-</a>
+						<input id="autoCellsAssist" maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57' autocomplete="off"
+						 type="tel" class="form-control" value="0">
+						<a onclick="modifyAutoAssist_qty(1)" class="btn btn-success btn-lg" style="width: 50px; height: 50px; margin-left: 15px;" role="button">+</a>
+					</div>
+				</div>
+			</div>
         </div>
         <hr />
         <div class="row">
@@ -227,6 +236,21 @@ files: |
 						<a onclick="modifyTeleopInner_qty(1)" class="btn btn-success btn-lg" style="width: 50px; height: 50px; margin-left: 15px;" role="button">+</a>
 					</div>
 				</div>
+            </div>
+            <div class="col-lg col-md-3 col-sm-4 col-6">
+				<div class="row">
+					<div class="col-md">
+						<label style="margin-bottom: 0px" for="teleopCellsAssist">Cells Assisted</label>
+					</div>
+				</div>
+				<div class="row" style="margin-top:15px">
+					<div class="col-md input-group">
+						<a onclick="modifyTeleopAssist_qty(-1)" class="btn btn-danger btn-lg" style="width: 50px; height: 50px; margin-right: 15px;" role="button">-</a>
+						<input id="teleopCellsAssist" maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57' autocomplete="off"
+						 type="tel" class="form-control" value="0">
+						<a onclick="modifyTeleopAssist_qty(1)" class="btn btn-success btn-lg" style="width: 50px; height: 50px; margin-left: 15px;" role="button">+</a>
+					</div>
+				</div>
 			</div>
         </div>
         <div class="row" style="margin-bottom: 15px">
@@ -255,12 +279,6 @@ files: |
                         No
                     </label>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <label class="mr-sm-2" style="display: block" for="teleopCommentSection">Teleop Notes and Comments</label>
-                <textarea autocomplete="off" style="width: 100%; height:100px" id="teleopCommentSection"></textarea>
             </div>
         </div>
         <hr />
@@ -312,12 +330,6 @@ files: |
                         No
                     </label>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <label class="mr-sm-2" style="display: block" for="endgameCommentSection">Endgame Notes and Comments</label>
-                <textarea autocomplete="off" style="width: 100%; height:100px" id="endgameCommentSection"></textarea>
             </div>
         </div>
         <hr />
@@ -426,8 +438,26 @@ files: |
         </div>
         <div class="row">
             <div class="col">
+                <label class="mr-sm-2" style="display: block" for="autoCommentSection">Auto Notes and Comments</label>
+                <textarea autocomplete="off" style="width: 100%; height:75px" id="autoCommentSection"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label class="mr-sm-2" style="display: block" for="teleopCommentSection">Teleop Notes and Comments</label>
+                <textarea autocomplete="off" style="width: 100%; height:75px" id="teleopCommentSection"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label class="mr-sm-2" style="display: block" for="endgameCommentSection">Endgame Notes and Comments</label>
+                <textarea autocomplete="off" style="width: 100%; height:75px" id="endgameCommentSection"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
                 <label class="mr-sm-2" style="display: block" for="generalCommentSection">General Notes and Comments</label>
-                <textarea autocomplete="off" style="width: 100%; height:100px" id="generalCommentSection"></textarea>
+                <textarea autocomplete="off" style="width: 100%; height:75px" id="generalCommentSection"></textarea>
             </div>
         </div>
         <button id="Submit" class="btn btn-success" type="button" style="margin-top: 15px; margin-bottom: 15px">Submit</button>

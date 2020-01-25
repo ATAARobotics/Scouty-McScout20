@@ -111,7 +111,6 @@ document.addEventListener('deviceready', async function () {
         var matchType = localStorage.getItem('matchType');
         var matchNumber = $('#matchNumber').val();
         var teamNumber = $('#teamNumber').val();
-
         var startingLocation = parseInt($('input[name=startingLocation]:checked').val());
         var movedBaseline = parseInt($('input[name=movedBaseline]:checked').val());
         var autoCellsPickup = parseInt($('#cellPickup').val());
@@ -120,7 +119,6 @@ document.addEventListener('deviceready', async function () {
         var autoCellsHigh = parseInt($('#cellsHigh').val());
         var autoCellsInner = parseInt($('#cellsInner').val());
         var autoComments = $('#autoCommentSection').val();        
-
         var teleopCellsPickup = parseInt($('#cellPickup').val());
         var teleopCellsDropped = parseInt($('#cellsDropped').val());
         var teleopCellsLow = parseInt($('#cellsLow').val());
@@ -129,12 +127,10 @@ document.addEventListener('deviceready', async function () {
         var rotationControl = parseInt($('input[name=rotationControl]:checked').val());
         var positionControl = parseInt($('input[name=positionControl]:checked').val());
         var teleopComments = $('#teleopCommentSection').val();
-
         var selfClimb = parseInt($('input[name=selfClimb]:checked').val());
         var totalClimb = parseInt($('input[name=totalClimb]:checked').val());
         var balanced = parseInt($('input[name=balanced]:checked').val());
         var endgameComments = $('#endgameCommentSection').val();
-
         var speed = parseInt($('input[name=speedRating]:checked').val());
         var stability = parseInt($('input[name=stabilityRating]:checked').val());
         var defence = parseInt($('input[name=defenceRating]:checked').val());
@@ -142,7 +138,7 @@ document.addEventListener('deviceready', async function () {
         var anythingBreak = parseInt($('input[name=anythingBreak]:checked').val());
         var dead = parseInt($('input[name=robotDead]:checked').val());
         var generalComments = $('#generalCommentSection').val();
-
+        console.log("Submit Error");
         var doc = {
             _id: `${matchType}${matchNumber}_${teamNumber}`,
             scoutName: localStorage.getItem('scoutName'),
@@ -153,11 +149,14 @@ document.addEventListener('deviceready', async function () {
             autoCellsLow: autoCellsLow,
             autoCellsHigh: autoCellsHigh,
             autoCellsInner: autoCellsInner,
+            autoCellsAssist: autoCellsAssist,
+            autoComments: autoComments,
             teleopCellsPickup: teleopCellsPickup,
             teleopCellsDropped: teleopCellsDropped,
             teleopCellsLow: teleopCellsLow,
             teleopCellsHigh: teleopCellsHigh,
             teleopCellsInner: teleopCellsInner,
+            teleopCellsAssist: teleopCellsAssist,
             rotationControl: rotationControl,
             positionControl: positionControl,
             teleopComments: teleopComments,
@@ -314,5 +313,29 @@ function modifyTeleopInner_qty(val) {
 	}
 
 	document.getElementById('teleopCellsInner').value = new_qty;
+	return new_qty;
+}
+
+function modifyAutoAssist_qty(val) {
+	var qty = document.getElementById('autoCellsAssist').value;
+	var new_qty = parseInt(qty, 10) + parseInt(val, 10);
+
+	if (new_qty < 0) {
+		new_qty = 0;
+	}
+
+	document.getElementById('autoCellsAssist').value = new_qty;
+	return new_qty;
+}
+
+function modifyTeleopAssist_qty(val) {
+	var qty = document.getElementById('teleopCellsAssist').value;
+	var new_qty = parseInt(qty, 10) + parseInt(val, 10);
+
+	if (new_qty < 0) {
+		new_qty = 0;
+	}
+
+	document.getElementById('teleopCellsAssist').value = new_qty;
 	return new_qty;
 }
