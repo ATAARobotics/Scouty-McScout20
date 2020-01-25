@@ -55,7 +55,7 @@ files: |
             </div>
             <div class="col-lg-3 col-md-6 col-6">
                 <label class="mr-sm-2" style="display: block" for="climbType">Can Climb and Balance?</label>
-                <div id="climbLevel" class="btn-group btn-group-toggle" data-toggle="buttons">
+                <div id="climbType" class="btn-group btn-group-toggle" data-toggle="buttons">
                     <label id="noClimb" class="btn btn-secondary">
                         <input type="radio" value="1" name="climbType" id="noClimb" autocomplete="off"> Neither
                     </label>
