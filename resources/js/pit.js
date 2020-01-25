@@ -186,7 +186,7 @@ document.addEventListener('deviceready', async function () {
 
         }
         if (localStorage.getItem('settingsCheck') == 1) {
-            if (teamNumber && robotAppearance != NaN && cellIntake && climbType != NaN && robotCapacity && cellLowLevel && cellHighLevel && cellInnerLevel && robotWeight && robotDone != NaN && robotBroken != NaN) {
+            if (teamNumber && robotAppearance != NaN && cellIntake && climbType != NaN && robotCapacity && cellLowLevel != NaN && cellHighLevel && cellInnerLevel != NaN && robotWeight && robotDone != NaN && robotBroken != NaN) {
                 try {
                     let docPut = await db.put(doc);
                     window.alert("Submitted!");
