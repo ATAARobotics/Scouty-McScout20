@@ -14,68 +14,80 @@ document.addEventListener('deviceready', async function () {
         $('#Submit').prop('disabled', true);
         window.alert("Check Settings!")
     }
-    /* This would probably work when the names are changed. TODO
     function show(doc) {
-        $('#climbingType').val(doc.climbingType);
-        $('#cargoshipCargo').val(doc.teleopCargoshipCargo);
-        $('#rocket1Cargo').val(doc.teleopRocket1Cargo);
-        $('#rocket2Cargo').val(doc.teleopRocket2Cargo);
-        $('#rocket3Cargo').val(doc.teleopRocket3Cargo);
-        $('#droppedCargo').val(doc.teleopDroppedCargo);
-        $('#cargoshipHatch').val(doc.teleopCargoshipHatch);
-        $('#rocket1Hatch').val(doc.teleopRocket1Hatch);
-        $('#rocket2Hatch').val(doc.teleopRocket2Hatch);
-        $('#rocket3Hatch').val(doc.teleopRocket3Hatch);
-        $('#droppedHatch').val(doc.teleopDroppedHatch);
-        $("input[name=startingLevel][value=" + doc.startingLevel + "]").prop('checked', true);
-        $('#' + $('input[name=startingLevel]:checked').attr("id")).addClass('active');
-        $("input[name=crossedBaseline][value=" + doc.crossedBaseline + "]").prop('checked', true);
-        $('#' + $('input[name=crossedBaseline]:checked').attr("id")).addClass('active');
+        $('#autoCellsPickup').val(doc.autoCellsPickup);
+        $('#autoCellsDropped').val(doc.autoCellsDropped);
+        $('#autoCellsLow').val(doc.autoCellsLow);
+        $('#autoCellsHigh').val(doc.autoCellsHigh);
+        $('#autoCellsInner').val(doc.autoCellsInner);
+        $('#teleopCellsPickup').val(doc.teleopCellsPickup);
+        $('#teleopCellsDropped').val(doc.teleopCellsDropped);
+        $('#teleopCellsLow').val(doc.teleopCellsLow);
+        $('#teleopCellsHigh').val(doc.teleopCellsHigh);
+        $('#teleopCellsInner').val(doc.teleopCellsInner);
+
+        $("input[name=startingLocation][value=" + doc.startingLocation + "]").prop('checked', true);
+        $('#' + $('input[name=startingLocation]:checked').attr("id")).addClass('active');
+        $("input[name=movedBaseline][value=" + doc.movedBaseline + "]").prop('checked', true);
+        $('#' + $('input[name=movedBaseline]:checked').attr("id")).addClass('active');
         $('#commentSection').val(`${doc.comments}\n---EDIT---\n`);
-        $("input[name=gaveAssistance][value=" + doc.climbingGaveAssistance + "]").prop('checked', true);
-        $('#' + $('input[name=gaveAssistance]:checked').attr("id")).addClass('active');
-        $("input[name=gotAssistance][value=" + doc.climbingGotAssistance + "]").prop('checked', true);
-        $('#' + $('input[name=gotAssistance]:checked').attr("id")).addClass('active');
+        $("input[name=rotationControl][value=" + doc.rotationControl + "]").prop('checked', true);
+        $('#' + $('input[name=rotationControl]:checked').attr("id")).addClass('active');
+        $("input[name=positionControl][value=" + doc.positionControl + "]").prop('checked', true);
+        $('#' + $('input[name=positionControl]:checked').attr("id")).addClass('active');
+        $("input[name=selfClimb][value=" + doc.selfClimb + "]").prop('checked', true);
+        $('#' + $('input[name=selfClimb]:checked').attr("id")).addClass('active');
+        $("input[name=totalClimb][value=" + doc.totalClimb + "]").prop('checked', true);
+        $('#' + $('input[name=totalClimb]:checked').attr("id")).addClass('active');
+        $("input[name=balanced][value=" + doc.balanced + "]").prop('checked', true);
+        $('#' + $('input[name=balanced]:checked').attr("id")).addClass('active');
+
         $("input[name=speedRating][value=" + doc.speed + "]").prop('checked', true);
         $('#' + $('input[name=speedRating]:checked').attr("id")).addClass('active');
         $("input[name=stabilityRating][value=" + doc.stability + "]").prop('checked', true);
         $('#' + $('input[name=stabilityRating]:checked').attr("id")).addClass('active');
-        $("input[name=skillRating][value=" + doc.driverSkill + "]").prop('checked', true);
-        $('#' + $('input[name=skillRating]:checked').attr("id")).addClass('active');
         $("input[name=defenceRating][value=" + doc.defence + "]").prop('checked', true);
         $('#' + $('input[name=defenceRating]:checked').attr("id")).addClass('active');
         $("input[name=robotDead][value=" + doc.dead + "]").prop('checked', true);
         $('#' + $('input[name=robotDead]:checked').attr("id")).addClass('active');
         $("input[name=anythingBreak][value=" + doc.anythingBreak + "]").prop('checked', true);
         $('#' + $('input[name=anythingBreak]:checked').attr("id")).addClass('active');
-        $('#startMatch').prop('disabled', true);
+
+        $('#autoCommentSection').val(`${doc.autoComments}\n---EDIT---\n`);
+        $('#teleopCommentSection').val(`${doc.teleopComments}\n---EDIT---\n`);
+        $('#endgameCommentSection').val(`${doc.endgameComments}\n---EDIT---\n`);
+        $('#generalCommentSection').val(`${doc.generalComments}\n---EDIT---\n`);
+        
     }
 
     function hide() {
-        $('#' + $('input[name=startingLevel]:checked').attr("id")).removeClass('active');
-        $('#' + $('input[name=crossedBaseline]:checked').attr("id")).removeClass('active');
-        $('#climbingType').val("Choose...");
-        $('#cargoshipCargo').val("0");
-        $('#rocket1Cargo').val("0");
-        $('#rocket2Cargo').val("0");
-        $('#rocket3Cargo').val("0");
-        $('#droppedCargo').val("0");
-        $('#cargoshipHatch').val("0");
-        $('#rocket1Hatch').val("0");
-        $('#rocket2Hatch').val("0");
-        $('#rocket3Hatch').val("0");
-        $('#droppedHatch').val("0");
-        $('#' + $('input[name=gotAssistance]:checked').attr("id")).removeClass('active');
-        $('#' + $('input[name=gaveAssistance]:checked').attr("id")).removeClass('active');
+        $('#' + $('input[name=startingLocation]:checked').attr("id")).removeClass('active');
+        $('#' + $('input[name=movedBaseline]:checked').attr("id")).removeClass('active');
+        $('#autoCellsPickup').val("0");
+        $('#autoCellsDropped').val("0");
+        $('#autoCellsLow').val("0");
+        $('#autoCellsHigh').val("0");
+        $('#autoCellsInner').val("0");
+        $('#teleopCellsPickup').val("0");
+        $('#teleopCellsDropped').val("0");
+        $('#teleopCellsLow').val("0");
+        $('#teleopCellsHigh').val("0");
+        $('#teleopCellsInner').val("0");
+        $('#' + $('input[name=rotationControl]:checked').attr("id")).removeClass('active');
+        $('#' + $('input[name=positionControl]:checked').attr("id")).removeClass('active');
+        $('#' + $('input[name=selfClimb]:checked').attr("id")).removeClass('active');
+        $('#' + $('input[name=totalClimb]:checked').attr("id")).removeClass('active');
+        $('#' + $('input[name=balanced]:checked').attr("id")).removeClass('active');
         $('#' + $('input[name=speedRating]:checked').attr("id")).removeClass('active');
         $('#' + $('input[name=stabilityRating]:checked').attr("id")).removeClass('active');
-        $('#' + $('input[name=skillRating]:checked').attr("id")).removeClass('active');
         $('#' + $('input[name=defenceRating]:checked').attr("id")).removeClass('active');
         $('#' + $('input[name=robotDead]:checked').attr("id")).removeClass('active');
         $('#' + $('input[name=anythingBreak]:checked').attr("id")).removeClass('active');
-        $('#commentSection').val('');
+        $('#autoCommentSection').val('');
+        $('#teleopCommentSection').val('');
+        $('#endgameCommentSection').val('');
+        $('#generalCommentSection').val('');
         $('input[type=radio]').attr('checked', false);
-        $('#startMatch').prop('disabled', false);
     }
 
     async function update() {
@@ -93,7 +105,7 @@ document.addEventListener('deviceready', async function () {
     }
     document.getElementById('teamNumber').onkeyup = function() {
         update();
-    }*/
+    }
 
     document.getElementById("Submit").onclick = async function () {
         var matchType = localStorage.getItem('matchType');
