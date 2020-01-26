@@ -20,11 +20,13 @@ document.addEventListener('deviceready', async function () {
         $('#autoCellsLow').val(doc.autoCellsLow);
         $('#autoCellsHigh').val(doc.autoCellsHigh);
         $('#autoCellsInner').val(doc.autoCellsInner);
+        $('#autoCellsAssist').val(doc.autoCellsAssist);
         $('#teleopCellsPickup').val(doc.teleopCellsPickup);
         $('#teleopCellsDropped').val(doc.teleopCellsDropped);
         $('#teleopCellsLow').val(doc.teleopCellsLow);
         $('#teleopCellsHigh').val(doc.teleopCellsHigh);
         $('#teleopCellsInner').val(doc.teleopCellsInner);
+        $('#teleopCellsAssist').val(doc.teleopCellsInner);
 
         $("input[name=startingLocation][value=" + doc.startingLocation + "]").prop('checked', true);
         $('#' + $('input[name=startingLocation]:checked').attr("id")).addClass('active');
@@ -46,8 +48,10 @@ document.addEventListener('deviceready', async function () {
         $('#' + $('input[name=speedRating]:checked').attr("id")).addClass('active');
         $("input[name=stabilityRating][value=" + doc.stability + "]").prop('checked', true);
         $('#' + $('input[name=stabilityRating]:checked').attr("id")).addClass('active');
-        $("input[name=defenceRating][value=" + doc.defence + "]").prop('checked', true);
-        $('#' + $('input[name=defenceRating]:checked').attr("id")).addClass('active');
+        $("input[name=defenseRating][value=" + doc.defense + "]").prop('checked', true);
+        $('#' + $('input[name=defenseRating]:checked').attr("id")).addClass('active');
+        $("input[name=primaryDefense][value=" + doc.primaryDefense + "]").prop('checked', true);
+        $('#' + $('input[name=primaryDefense]:checked').attr("id")).addClass('active');
         $("input[name=robotDead][value=" + doc.dead + "]").prop('checked', true);
         $('#' + $('input[name=robotDead]:checked').attr("id")).addClass('active');
         $("input[name=anythingBreak][value=" + doc.anythingBreak + "]").prop('checked', true);
@@ -68,11 +72,13 @@ document.addEventListener('deviceready', async function () {
         $('#autoCellsLow').val("0");
         $('#autoCellsHigh').val("0");
         $('#autoCellsInner').val("0");
+        $('#autoCellsAssist').val("0");
         $('#teleopCellsPickup').val("0");
         $('#teleopCellsDropped').val("0");
         $('#teleopCellsLow').val("0");
         $('#teleopCellsHigh').val("0");
         $('#teleopCellsInner').val("0");
+        $('#teleopCellsAssist').val("0");
         $('#' + $('input[name=rotationControl]:checked').attr("id")).removeClass('active');
         $('#' + $('input[name=positionControl]:checked').attr("id")).removeClass('active');
         $('#' + $('input[name=selfClimb]:checked').attr("id")).removeClass('active');
@@ -80,7 +86,8 @@ document.addEventListener('deviceready', async function () {
         $('#' + $('input[name=balanced]:checked').attr("id")).removeClass('active');
         $('#' + $('input[name=speedRating]:checked').attr("id")).removeClass('active');
         $('#' + $('input[name=stabilityRating]:checked').attr("id")).removeClass('active');
-        $('#' + $('input[name=defenceRating]:checked').attr("id")).removeClass('active');
+        $('#' + $('input[name=defenseRating]:checked').attr("id")).removeClass('active');
+        $('#' + $('input[name=primaryDefense]:checked').attr("id")).removeClass('active');
         $('#' + $('input[name=robotDead]:checked').attr("id")).removeClass('active');
         $('#' + $('input[name=anythingBreak]:checked').attr("id")).removeClass('active');
         $('#autoCommentSection').val('');
@@ -113,17 +120,19 @@ document.addEventListener('deviceready', async function () {
         var teamNumber = $('#teamNumber').val();
         var startingLocation = parseInt($('input[name=startingLocation]:checked').val());
         var movedBaseline = parseInt($('input[name=movedBaseline]:checked').val());
-        var autoCellsPickup = parseInt($('#cellPickup').val());
-        var autoCellsDropped = parseInt($('#cellsDropped').val());
-        var autoCellsLow = parseInt($('#cellsLow').val());
-        var autoCellsHigh = parseInt($('#cellsHigh').val());
-        var autoCellsInner = parseInt($('#cellsInner').val());
+        var autoCellsPickup = parseInt($('#autoCellsPickup').val());
+        var autoCellsDropped = parseInt($('#autocCellsDropped').val());
+        var autoCellsLow = parseInt($('#autocCellsLow').val());
+        var autoCellsHigh = parseInt($('#autoCellsHigh').val());
+        var autoCellsInner = parseInt($('#autoCellsInner').val());
+        var autoCellsAssist = parseInt($('#autoCellsAssist').val());
         var autoComments = $('#autoCommentSection').val();        
-        var teleopCellsPickup = parseInt($('#cellPickup').val());
-        var teleopCellsDropped = parseInt($('#cellsDropped').val());
-        var teleopCellsLow = parseInt($('#cellsLow').val());
-        var teleopCellsHigh = parseInt($('#cellsHigh').val());
-        var teleopCellsInner = parseInt($('#cellsInner').val());
+        var teleopCellsPickup = parseInt($('#teleopCellsPickup').val());
+        var teleopCellsDropped = parseInt($('#teleopCellsDropped').val());
+        var teleopCellsLow = parseInt($('#teleopCellsLow').val());
+        var teleopCellsHigh = parseInt($('teleopCcellsHigh').val());
+        var teleopCellsInner = parseInt($('#teleopCellsInner').val());
+        var teleopCellsAssist = parseInt($('#teleopCellsAssist').val());
         var rotationControl = parseInt($('input[name=rotationControl]:checked').val());
         var positionControl = parseInt($('input[name=positionControl]:checked').val());
         var teleopComments = $('#teleopCommentSection').val();
@@ -133,12 +142,11 @@ document.addEventListener('deviceready', async function () {
         var endgameComments = $('#endgameCommentSection').val();
         var speed = parseInt($('input[name=speedRating]:checked').val());
         var stability = parseInt($('input[name=stabilityRating]:checked').val());
-        var defence = parseInt($('input[name=defenceRating]:checked').val());
-        var primaryDefence = parseInt($('input[name=primaryDefence]:checked').val());
+        var defense = parseInt($('input[name=defenseRating]:checked').val());
+        var primaryDefense = parseInt($('input[name=primaryDefense]:checked').val());
         var anythingBreak = parseInt($('input[name=anythingBreak]:checked').val());
         var dead = parseInt($('input[name=robotDead]:checked').val());
         var generalComments = $('#generalCommentSection').val();
-        console.log("Submit Error");
         var doc = {
             _id: `${matchType}${matchNumber}_${teamNumber}`,
             scoutName: localStorage.getItem('scoutName'),
@@ -166,8 +174,8 @@ document.addEventListener('deviceready', async function () {
             endgameComments: endgameComments,
             speed: speed,
             stability: stability,
-            defence: defence,
-            primaryDefence: primaryDefence,
+            defense: defense,
+            primaryDefense: primaryDefense,
             anythingBreak: anythingBreak,
             dead: dead,
             generalComments: generalComments

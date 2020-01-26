@@ -383,7 +383,7 @@ files: |
                 <label class="mr-sm-2" style="display: block" for="defenseRating">Defense</label>
                 <div id="defenseRating" class="btn-group btn-group-toggle" data-toggle="buttons">
                     <label id="defense1" class="btn btn-secondary">
-                        <input type="radio" value="1" name="defesnseRating" id="defense1" autocomplete="off"> 1
+                        <input type="radio" value="1" name="defenseRating" id="defense1" autocomplete="off"> 1
                     </label>
                     <label id="defense2" class="btn btn-secondary">
                         <input type="radio" value="2" name="defenseRating" id="defense2" autocomplete="off"> 2
