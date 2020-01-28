@@ -39,6 +39,8 @@ document.addEventListener('deviceready', async function () {
         $('#' + $('input[name=positionControl]:checked').attr("id")).addClass('active');
         $("input[name=selfClimb][value=" + doc.selfClimb + "]").prop('checked', true);
         $('#' + $('input[name=selfClimb]:checked').attr("id")).addClass('active');
+        $("input[name=selfPark][value=" + doc.selfPark + "]").prop('checked', true);
+        $('#' + $('input[name=selfPark]:checked').attr("id")).addClass('active');
         $("input[name=totalClimb][value=" + doc.totalClimb + "]").prop('checked', true);
         $('#' + $('input[name=totalClimb]:checked').attr("id")).addClass('active');
         $("input[name=balanced][value=" + doc.balanced + "]").prop('checked', true);
@@ -82,6 +84,7 @@ document.addEventListener('deviceready', async function () {
         $('#' + $('input[name=rotationControl]:checked').attr("id")).removeClass('active');
         $('#' + $('input[name=positionControl]:checked').attr("id")).removeClass('active');
         $('#' + $('input[name=selfClimb]:checked').attr("id")).removeClass('active');
+        $('#' + $('input[name=selfPark]:checked').attr("id")).removeClass('active');
         $('#' + $('input[name=totalClimb]:checked').attr("id")).removeClass('active');
         $('#' + $('input[name=balanced]:checked').attr("id")).removeClass('active');
         $('#' + $('input[name=speedRating]:checked').attr("id")).removeClass('active');
@@ -137,6 +140,7 @@ document.addEventListener('deviceready', async function () {
         var positionControl = parseInt($('input[name=positionControl]:checked').val());
         var teleopComments = $('#teleopCommentSection').val();
         var selfClimb = parseInt($('input[name=selfClimb]:checked').val());
+        var selfPark = parseInt($('input[name=selfPark]:checked').val());
         var totalClimb = parseInt($('input[name=totalClimb]:checked').val());
         var balanced = parseInt($('input[name=balanced]:checked').val());
         var endgameComments = $('#endgameCommentSection').val();
@@ -169,6 +173,7 @@ document.addEventListener('deviceready', async function () {
             positionControl: positionControl,
             teleopComments: teleopComments,
             selfClimb: selfClimb,
+            selfPark: selfPark,
             totalClimb: totalClimb,
             balanced: balanced,
             endgameComments: endgameComments,

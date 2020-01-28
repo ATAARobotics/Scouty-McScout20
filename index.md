@@ -82,7 +82,7 @@ files: |
             <div class="col-lg col-md-3 col-sm-4 col-6">
 				<div class="row">
 					<div class="col-md">
-						<label style="margin-bottom: 0px" for="autoCellsDropped">Cells Dropped</label>
+						<label style="margin-bottom: 0px" for="autoCellsDropped">Cells Dropped/Missed</label>
 					</div>
 				</div>
 				<div class="row" style="margin-top:15px">
@@ -180,7 +180,7 @@ files: |
             <div class="col-lg col-md-3 col-sm-4 col-6">
 				<div class="row">
 					<div class="col-md">
-						<label style="margin-bottom: 0px" for="teleopCellsDropped">Cells Dropped</label>
+						<label style="margin-bottom: 0px" for="teleopCellsDropped">Cells Dropped/Missed</label>
 					</div>
 				</div>
 				<div class="row" style="margin-top:15px">
@@ -288,7 +288,7 @@ files: |
             </div>
         </div>
         <div class="row">
-            <div class="col-4">
+            <div class="col-3">
                 <label class="mr-sm-2" style="display: block" for="selfClimb">Climbed</label>
                     <div id="selfClimb" class="btn-group btn-group-toggle" data-toggle="buttons">
                         <label id="selfClimbYes" class="btn btn-secondary">
@@ -301,24 +301,41 @@ files: |
                         </label>
                     </div>
             </div>
-            <div class="col-4">
+            <div class="col-3">
+                <label class="mr-sm-2" style="display: block" for="selfPark">Parked</label>
+                    <div id="selfPark" class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label id="selfParkYes" class="btn btn-secondary">
+                            <input type="radio" value="1" name="selfPark" id="selfParkYes" autocomplete="off">
+                            Yes
+                        </label>
+                        <label id="selfParkNo" class="btn btn-secondary">
+                            <input type="radio" value="0" name="selfPark" id="selfParkNo" autocomplete="off">
+                            No
+                        </label>
+                    </div>
+            </div>
+            <div class="col-3">
                 <label class="mr-sm-2" style="display: block" for="totalClimb">Total Climbs</label>
                 <div id="totalClimb" class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label id="totalClimb0" class="btn btn-secondary">
+                        <input type="radio" value="0" name="totalClimb" id="totalClimb0" autocomplete="off">
+                            0
+                    </label>
                     <label id="totalClimb1" class="btn btn-secondary">
                         <input type="radio" value="1" name="totalClimb" id="totalClimb1" autocomplete="off">
                             1
                     </label>
                     <label id="totalClimb2" class="btn btn-secondary">
-                        <input type="radio" value="0" name="totalClimb" id="totalClimb2" autocomplete="off">
+                        <input type="radio" value="2" name="totalClimb" id="totalClimb2" autocomplete="off">
                         2
                     </label>
                     <label id="totalClimb3" class="btn btn-secondary">
-                        <input type="radio" value="0" name="totalClimb" id="totalClimb3" autocomplete="off">
+                        <input type="radio" value="3" name="totalClimb" id="totalClimb3" autocomplete="off">
                         3
                     </label>
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-3">
                 <label class="mr-sm-2" style="display: block" for="balanced">Balanced</label>
                 <div id="balanced" class="btn-group btn-group-toggle" data-toggle="buttons">
                     <label id="balancedYes" class="btn btn-secondary">
@@ -406,7 +423,7 @@ files: |
                         <input type="radio" value="1" name="primaryDefense" id="primaryDefenseYes" autocomplete="off"> Yes
                     </label>
                     <label id="primaryDefenseNo" class="btn btn-secondary">
-                        <input type="radio" value="2" name="primaryDefense" id="primaryDefenseNo" autocomplete="off"> No
+                        <input type="radio" value="0" name="primaryDefense" id="primaryDefenseNo" autocomplete="off"> No
                     </label>
                 </div>
             </div>
