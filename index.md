@@ -399,6 +399,9 @@ files: |
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-6">
                 <label class="mr-sm-2" style="display: block" for="defenseRating">Defense</label>
                 <div id="defenseRating" class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label id="defenseNA" class="btn btn-secondary">
+                        <input type="radio" value="0" name="defenseRating" id="defenseNA" autocomplete="off"> NA
+                    </label>
                     <label id="defense1" class="btn btn-secondary">
                         <input type="radio" value="1" name="defenseRating" id="defense1" autocomplete="off"> 1
                     </label>
@@ -437,7 +440,8 @@ files: |
                         Yes
                     </label>
                     <label id="anythingBreakNo" class="btn btn-secondary">
-                        <input type="radio" value="0" name="anythingBreak" id="anythingBreakNo" autocomplete="off"> No
+                        <input type="radio" value="0" name="anythingBreak" id="anythingBreakNo" autocomplete="off"> 
+                        No
                     </label>
                 </div>
             </div>

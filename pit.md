@@ -136,6 +136,17 @@ files: |
         </div>
         <div class="row">
             <div class="col-6">
+                <label class="mr-sm-2" style="display: block" for="robotHeight">Robot Height</label>
+                <div id="robotHeight" class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label id="robotTall" class="btn btn-secondary">
+                        <input type="radio" value="1" name="robotHeight" id="robotTall" autocomplete="off"> Over Trench
+                    </label>
+                    <label id="robotShort" class="btn btn-secondary">
+                        <input type="radio" value="0" name="robotHeight" id="robotShort" autocomplete="off"> Under Trench
+                    </label>
+                </div>
+            </div>
+            <div class="col-3">
                 <label class="mr-sm-2" style="display: block" for="robotDone">Robot Done</label>
                 <div id="robotDone" class="btn-group btn-group-toggle" data-toggle="buttons">
                     <label id="robotDoneYes" class="btn btn-secondary">
@@ -146,7 +157,7 @@ files: |
                     </label>
                 </div>
             </div>
-            <div class="col-6">
+            <div class="col-3">
                 <label class="mr-sm-2" style="display: block" for="robotBroken">Anything Broken?</label>
                 <div id="robotBroken" class="btn-group btn-group-toggle" data-toggle="buttons">
                     <label id="robotBrokenYes" class="btn btn-secondary">
