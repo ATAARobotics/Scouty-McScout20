@@ -93,6 +93,7 @@ document.addEventListener('deviceready', async function () {
         var cellLowLevel = doc.cellLowLevel;
         var cellHighLevel = doc.cellHighLevel;
         var cellInnerLevel = doc.cellInnerLevel;
+        var controlPanel = doc.controlPanel;
         var robotWeight = doc.robotWeight;
         var robotHeight = doc.robotHeight;
         var robotPhoto1Url = URL.createObjectURL(doc._attachments['photo1.jpg'].data);
@@ -105,7 +106,7 @@ document.addEventListener('deviceready', async function () {
         document.getElementById("robotPhoto2Preview").style.display = "block";
         $("input[name=robotAppearance][value=" + robotAppearance + "]").prop('checked', true);
         $('#' + $('input[name=robotAppearance]:checked').attr("id")).addClass('active');
-        $("input[name=callIntake][value=" + cellIntake + "]").prop('checked', true);
+        $("input[name=cellIntake][value=" + cellIntake + "]").prop('checked', true);
         $('#' + $('input[name=cellIntake]:checked').attr("id")).addClass('active');
         $("input[name=climbType][value=" + climbType + "]").prop('checked', true);
         $('#' + $('input[name=climbType]:checked').attr("id")).addClass('active');
@@ -117,6 +118,8 @@ document.addEventListener('deviceready', async function () {
         $('#' + $('input[name=cellHighLevel]:checked').attr("id")).addClass('active');
         $("input[name=cellInnerLevel][value=" + cellInnerLevel + "]").prop('checked', true);
         $('#' + $('input[name=cellInnerLevel]:checked').attr("id")).addClass('active');
+        $("input[name=controlPanel][value=" + controlPanel + "]").prop('checked', true);
+        $('#' + $('input[name=controlPanel]:checked').attr("id")).addClass('active');
         $("input[name=robotWeight][value=" + robotWeight + "]").prop('checked', true);
         $('#' + $('input[name=robotWeight]:checked').attr("id")).addClass('active');
         $("input[name=robotDone][value=" + robotDone + "]").prop('checked', true);
@@ -133,6 +136,7 @@ document.addEventListener('deviceready', async function () {
         $('#' + $('input[name=cellLowLevel]:checked').attr("id")).removeClass('active');
         $('#' + $('input[name=cellHighLevel]:checked').attr("id")).removeClass('active');
         $('#' + $('input[name=cellInnerLevel]:checked').attr("id")).removeClass('active');
+        $('#' + $('input[name=controlPanel]:checked').attr("id")).removeClass('active');
         $('#' + $('input[name=robotWeight]:checked').attr("id")).removeClass('active');
         $('#' + $('input[name=robotAppearance]:checked').attr("id")).removeClass('active');
         $('#' + $('input[name=robotHeight]:checked').attr("id")).removeClass('active');
@@ -156,6 +160,7 @@ document.addEventListener('deviceready', async function () {
         var cellLowLevel = parseInt($('input[name=cellLowLevel]:checked').val());
         var cellHighLevel = parseInt($('input[name=cellHighLevel]:checked').val());
         var cellInnerLevel = parseInt($('input[name=cellInnerLevel]:checked').val());
+        var controlPanel = parseInt($('input[name=controlPanel]:checked').val());
         var robotWeight = $('#robotWeight').val();
         var robotHeight = parseInt($('input[name=robotHeight]:checked').val());
         var robotDone = parseInt($('input[name=robotDone]:checked').val());
@@ -181,6 +186,7 @@ document.addEventListener('deviceready', async function () {
             cellLowLevel: cellLowLevel,
             cellHighLevel: cellHighLevel,
             cellInnerLevel: cellInnerLevel,
+            controlPanel: controlPanel,
             robotWeight: robotWeight,
             robotHeight: robotHeight,
             robotDone: robotDone,

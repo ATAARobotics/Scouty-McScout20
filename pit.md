@@ -129,13 +129,30 @@ files: |
                 </div>
             </div>
             <div class="col-lg-3 col-sm-6 col-6">
+                <label class="mr-sm-2" style="display: block" for="controlPanel">Control Panel</label>
+                <div id="controlPanel" class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label id="noControlPanel" class="btn btn-secondary">
+                        <input type="radio" value="0" name="controlPanel" id="noControlPanel" autocomplete="off">
+                        None
+                    </label>
+                    <label id="positionControl" class="btn btn-secondary">
+                        <input type="radio" value="1" name="controlPanel" id="positionControl" autocomplete="off">
+                        Position
+                    </label>
+                    <label id="rotationControl" class="btn btn-secondary">
+                        <input type="radio" value="2" name="controlPanel" id="rotationControl" autocomplete="off">
+                        Rotation
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-sm-6 col-6">
                 <label class="mr-sm-2" for="robotWeight">Robot Weight (lbs, with bumpers)</label>
                 <input id="robotWeight" maxlength="3" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
                     autocomplete="off" type="tel" class="form-control" placeholder="Robot Weight">
             </div>
-        </div>
-        <div class="row">
-            <div class="col-6">
+            <div class="col-lg-3 col-sm-6 col-6">
                 <label class="mr-sm-2" style="display: block" for="robotHeight">Robot Height</label>
                 <div id="robotHeight" class="btn-group btn-group-toggle" data-toggle="buttons">
                     <label id="robotTall" class="btn btn-secondary">
@@ -158,7 +175,7 @@ files: |
                 </div>
             </div>
             <div class="col-3">
-                <label class="mr-sm-2" style="display: block" for="robotBroken">Anything Broken?</label>
+                <label class="mr-sm-2" style="display: block" for="robotBroken">Anything Broken</label>
                 <div id="robotBroken" class="btn-group btn-group-toggle" data-toggle="buttons">
                     <label id="robotBrokenYes" class="btn btn-secondary">
                         <input type="radio" value="1" name="robotBroken" id="robotBrokenYes" autocomplete="off"> Yes
