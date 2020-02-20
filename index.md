@@ -254,7 +254,7 @@ files: |
 			</div>
         </div>
         <div class="row" style="margin-bottom: 15px">
-            <div class="col-6">
+            <div class="col-4">
                 <label class="mr-sm-2" style="display: block" for="rotationControl">Rotation Control</label>
                 <div id="rotationControl" class="btn-group btn-group-toggle" data-toggle="buttons">
                     <label id="rotationControlYes" class="btn btn-secondary">
@@ -267,7 +267,7 @@ files: |
                     </label>
                 </div>
             </div>
-            <div class="col-6">
+            <div class="col-4">
                 <label class="mr-sm-2" style="display: block" for="positionControl">Position Control</label>
                 <div id="positionControl" class="btn-group btn-group-toggle" data-toggle="buttons">
                     <label id="positionControlYes" class="btn btn-secondary">
@@ -280,6 +280,21 @@ files: |
                     </label>
                 </div>
             </div>
+            <div class="col-lg col-md-3 col-sm-4 col-4">
+				<div class="row">
+					<div class="col-md">
+						<label style="margin-bottom: 0px" for="penalties">Penalties</label>
+					</div>
+				</div>
+				<div class="row" style="margin-top:15px">
+					<div class="col-md input-group">
+						<a onclick="modifyPenalties_qty(-1)" class="btn btn-danger btn-lg" style="width: 50px; height: 50px; margin-right: 15px;" role="button">-</a>
+						<input id="penalties" maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57' autocomplete="off"
+						 type="tel" class="form-control" value="0">
+						<a onclick="modifyPenalties_qty(1)" class="btn btn-success btn-lg" style="width: 50px; height: 50px; margin-left: 15px;" role="button">+</a>
+					</div>
+				</div>
+			</div>
         </div>
         <hr />
         <div class="row">

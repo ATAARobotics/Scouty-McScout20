@@ -27,6 +27,7 @@ document.addEventListener('deviceready', async function () {
         $('#teleopCellsHigh').val(doc.teleopCellsHigh);
         $('#teleopCellsInner').val(doc.teleopCellsInner);
         $('#teleopCellsAssist').val(doc.teleopCellsInner);
+        $('#penalties').val(doc.penalties);
 
         $("input[name=startingLocation][value=" + doc.startingLocation + "]").prop('checked', true);
         $('#' + $('input[name=startingLocation]:checked').attr("id")).addClass('active');
@@ -81,6 +82,7 @@ document.addEventListener('deviceready', async function () {
         $('#teleopCellsHigh').val("0");
         $('#teleopCellsInner').val("0");
         $('#teleopCellsAssist').val("0");
+        $('#penalties').val("0");
         $('#' + $('input[name=rotationControl]:checked').attr("id")).removeClass('active');
         $('#' + $('input[name=positionControl]:checked').attr("id")).removeClass('active');
         $('#' + $('input[name=selfClimb]:checked').attr("id")).removeClass('active');
@@ -133,11 +135,12 @@ document.addEventListener('deviceready', async function () {
         var teleopCellsPickup = parseInt($('#teleopCellsPickup').val());
         var teleopCellsDropped = parseInt($('#teleopCellsDropped').val());
         var teleopCellsLow = parseInt($('#teleopCellsLow').val());
-        var teleopCellsHigh = parseInt($('teleopCcellsHigh').val());
+        var teleopCellsHigh = parseInt($('teleopCellsHigh').val());
         var teleopCellsInner = parseInt($('#teleopCellsInner').val());
         var teleopCellsAssist = parseInt($('#teleopCellsAssist').val());
         var rotationControl = parseInt($('input[name=rotationControl]:checked').val());
         var positionControl = parseInt($('input[name=positionControl]:checked').val());
+        var penalties = parseInt($('#penalties').val());
         var teleopComments = $('#teleopCommentSection').val();
         var selfClimb = parseInt($('input[name=selfClimb]:checked').val());
         var selfPark = parseInt($('input[name=selfPark]:checked').val());
@@ -172,6 +175,7 @@ document.addEventListener('deviceready', async function () {
             rotationControl: rotationControl,
             positionControl: positionControl,
             teleopComments: teleopComments,
+            penalties: penalties,
             selfClimb: selfClimb,
             selfPark: selfPark,
             totalClimb: totalClimb,
@@ -350,5 +354,17 @@ function modifyTeleopAssist_qty(val) {
 	}
 
 	document.getElementById('teleopCellsAssist').value = new_qty;
+	return new_qty;
+}
+
+function modifyPenalties_qty(val) {
+	var qty = document.getElementById('penalties').value;
+	var new_qty = parseInt(qty, 10) + parseInt(val, 10);
+
+	if (new_qty < 0) {
+		new_qty = 0;
+	}
+
+	document.getElementById('penalties').value = new_qty;
 	return new_qty;
 }
