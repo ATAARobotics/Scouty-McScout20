@@ -35,15 +35,15 @@ files: |
             <div class="col-6">
                 <label class="mr-sm-2" style="display: block" for="startingLocation">Starting Location</label>
                 <div id="startingLocation" class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label id="startingLocationl1" class="btn btn-secondary">
+                    <label id="startingLocation1" class="btn btn-secondary">
                         <input type="radio" value="1" name="startingLocation" id="startingLocation1" autocomplete="off">
                         Left
                     </label>
-                    <label id="startingLocationl2" class="btn btn-secondary">
+                    <label id="startingLocation2" class="btn btn-secondary">
                         <input type="radio" value="2" name="startingLocation" id="startingLocation2" autocomplete="off">
                         Middle
                     </label>
-                    <label id="startingLocationl3" class="btn btn-secondary">
+                    <label id="startingLocation3" class="btn btn-secondary">
                         <input type="radio" value="3" name="startingLocation" id="startingLocation3" autocomplete="off">
                         Right
                     </label>

@@ -40,15 +40,15 @@ files: |
                 <label class="mr-sm-2" style="display: block" for="cellIntake">Intake</label>
                 <div id="cellIntake" class="btn-group btn-group-toggle" data-toggle="buttons">
                     <label id="groundCellIntake" class="btn btn-secondary">
-                        <input type="radio" value="cargo" name="cellIntake" id="groundCellIntake" autocomplete="off">
+                        <input type="radio" value="ground" name="cellIntake" id="groundCellIntake" autocomplete="off">
                         Ground
                     </label>
                     <label id="stationCellIntake" class="btn btn-secondary">
-                        <input type="radio" value="hatch" name="cellIntake" id="stationCellIntake" autocomplete="off">
+                        <input type="radio" value="station" name="cellIntake" id="stationCellIntake" autocomplete="off">
                         Station
                     </label>
                     <label id="noCellIntake" class="btn btn-secondary">
-                        <input type="radio" value="both" name="CellIntake" id="noCellIntake" autocomplete="off">
+                        <input type="radio" value="both" name="cellIntake" id="noCellIntake" autocomplete="off">
                         None
                     </label>
                 </div>

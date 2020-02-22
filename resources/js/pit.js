@@ -1,7 +1,7 @@
 document.addEventListener('deviceready', async function () {
     if (localStorage.getItem('settingsCheck') == 1) {
-        var databaseName = localStorage.getItem('databaseName');
-        var db;
+        let databaseName = localStorage.getItem('databaseName');
+        let db;
         if (JSON.parse(localStorage.getItem('sqLite'))) {
             db = new PouchDB(databaseName, { adapter: 'cordova-sqlite' });
             console.log(db.adapter);
@@ -18,26 +18,26 @@ document.addEventListener('deviceready', async function () {
         contentType = contentType || '';
         sliceSize = sliceSize || 512;
 
-        var byteCharacters = atob(b64Data);
-        var byteArrays = [];
+        let byteCharacters = atob(b64Data);
+        let byteArrays = [];
 
-        for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
-            var slice = byteCharacters.slice(offset, offset + sliceSize);
+        for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+            let slice = byteCharacters.slice(offset, offset + sliceSize);
 
-            var byteNumbers = new Array(slice.length);
-            for (var i = 0; i < slice.length; i++) {
+            let byteNumbers = new Array(slice.length);
+            for (let i = 0; i < slice.length; i++) {
                 byteNumbers[i] = slice.charCodeAt(i);
             }
 
-            var byteArray = new Uint8Array(byteNumbers);
+            let byteArray = new Uint8Array(byteNumbers);
 
             byteArrays.push(byteArray);
         }
 
-        var blob = new Blob(byteArrays, { type: contentType });
+        let blob = new Blob(byteArrays, { type: contentType });
         return blob;
     }
-    var picture1 = '';
+    let picture1 = '';
     document.getElementById('newPicture1').onclick = function () {
         function success(img) {
             picture1 = b64toBlob(img, 'image/jpeg');
@@ -60,7 +60,7 @@ document.addEventListener('deviceready', async function () {
         }
         navigator.camera.getPicture(success, fail, { destinationType: Camera.DestinationType.DATA_URL, sourceType: Camera.PictureSourceType.PHOTOLIBRARY });
     }
-    var picture2 = '';
+    let picture2 = '';
     document.getElementById('newPicture2').onclick = function () {
         function success(img) {
             picture2 = b64toBlob(img, 'image/jpeg');
@@ -84,21 +84,21 @@ document.addEventListener('deviceready', async function () {
         navigator.camera.getPicture(success, fail, { destinationType: Camera.DestinationType.DATA_URL, sourceType: Camera.PictureSourceType.PHOTOLIBRARY });
     }
     function show(doc) {
-        var robotAppearance = doc.robotAppearance;
-        var robotDone = doc.robotDone;
-        var robotBroken = doc.robotBroken;
-        var cellIntake = doc.cellIntake;
-        var climbType = doc.climbType;
-        var robotCapacity = doc.robotCapacity;
-        var cellLowLevel = doc.cellLowLevel;
-        var cellHighLevel = doc.cellHighLevel;
-        var cellInnerLevel = doc.cellInnerLevel;
-        var controlPanel = doc.controlPanel;
-        var robotWeight = doc.robotWeight;
-        var robotHeight = doc.robotHeight;
-        var robotPhoto1Url = URL.createObjectURL(doc._attachments['photo1.jpg'].data);
-        var robotPhoto2Url = URL.createObjectURL(doc._attachments['photo2.jpg'].data);
-        var comments = doc.comments;
+        let robotAppearance = doc.robotAppearance;
+        let robotDone = doc.robotDone;
+        let robotBroken = doc.robotBroken;
+        let cellIntake = doc.cellIntake;
+        let climbType = doc.climbType;
+        let robotCapacity = doc.robotCapacity;
+        let cellLowLevel = doc.cellLowLevel;
+        let cellHighLevel = doc.cellHighLevel;
+        let cellInnerLevel = doc.cellInnerLevel;
+        let controlPanel = doc.controlPanel;
+        let robotWeight = doc.robotWeight;
+        let robotHeight = doc.robotHeight;
+        let robotPhoto1Url = URL.createObjectURL(doc._attachments['photo1.jpg'].data);
+        let robotPhoto2Url = URL.createObjectURL(doc._attachments['photo2.jpg'].data);
+        let comments = doc.comments;
         $('#commentSection').val(`${comments}\n---EDIT---\n`);
         robotPhoto1Preview.src = robotPhoto1Url;
         robotPhoto2Preview.src = robotPhoto2Url;
@@ -151,22 +151,22 @@ document.addEventListener('deviceready', async function () {
 
     }
     document.getElementById("Submit").onclick = async function () {
-        var teamNumber = $('#teamNumber').val();
-        var scoutName = localStorage.getItem('scoutName');
-        var robotAppearance = parseInt($('input[name=robotAppearance]:checked').val());
-        var cellIntake = parseInt($('input[name=cellIntake]:checked').val());
-        var climbType = parseInt($('input[name=climbType]:checked').val());
-        var robotCapacity = parseInt($('input[name=robotCapacity]:checked').val());
-        var cellLowLevel = parseInt($('input[name=cellLowLevel]:checked').val());
-        var cellHighLevel = parseInt($('input[name=cellHighLevel]:checked').val());
-        var cellInnerLevel = parseInt($('input[name=cellInnerLevel]:checked').val());
-        var controlPanel = parseInt($('input[name=controlPanel]:checked').val());
-        var robotWeight = $('#robotWeight').val();
-        var robotHeight = parseInt($('input[name=robotHeight]:checked').val());
-        var robotDone = parseInt($('input[name=robotDone]:checked').val());
-        var robotBroken = parseInt($('input[name=robotBroken]:checked').val());
-        var comments = $('#commentSection').val();
-        var doc = {
+        let teamNumber = $('#teamNumber').val();
+        let scoutName = localStorage.getItem('scoutName');
+        let robotAppearance = parseInt($('input[name=robotAppearance]:checked').val());
+        let cellIntake = $('input[name=cellIntake]:checked').val();
+        let climbType = parseInt($('input[name=climbType]:checked').val());
+        let robotCapacity = parseInt($('input[name=robotCapacity]:checked').val());
+        let cellLowLevel = parseInt($('input[name=cellLowLevel]:checked').val());
+        let cellHighLevel = parseInt($('input[name=cellHighLevel]:checked').val());
+        let cellInnerLevel = parseInt($('input[name=cellInnerLevel]:checked').val());
+        let controlPanel = parseInt($('input[name=controlPanel]:checked').val());
+        let robotWeight = $('#robotWeight').val();
+        let robotHeight = parseInt($('input[name=robotHeight]:checked').val());
+        let robotDone = parseInt($('input[name=robotDone]:checked').val());
+        let robotBroken = parseInt($('input[name=robotBroken]:checked').val());
+        let comments = $('#commentSection').val();
+        let doc = {
             _id: `pit_${teamNumber}`,
             _attachments: {
                 'photo1.jpg': {
@@ -195,7 +195,19 @@ document.addEventListener('deviceready', async function () {
 
         }
         if (localStorage.getItem('settingsCheck') == 1) {
-            if (teamNumber && robotAppearance != NaN && cellIntake && climbType != NaN && robotCapacity && cellLowLevel != NaN && cellHighLevel && cellInnerLevel != NaN && robotWeight && robotDone != NaN && robotBroken != NaN) {
+            if (teamNumber && 
+                robotAppearance != NaN && 
+                cellIntake && 
+                climbType != NaN && 
+                robotCapacity &&
+                cellLowLevel != NaN &&
+                cellHighLevel &&
+                cellInnerLevel != NaN &&
+                robotWeight &&
+                robotDone != NaN &&
+                robotBroken != NaN &&
+                controlPanel != NaN &&
+                robotHeight != NaN ) {
                 try {
                     let docPut = await db.put(doc);
                     window.alert("Submitted!");
@@ -226,7 +238,7 @@ document.addEventListener('deviceready', async function () {
     }
     document.getElementById("teamNumber").onkeyup = async function () {
         try {
-            var pitDoc = await db.get(`pit_${$('#teamNumber').val()}`, { attachments: true, binary: true });
+            let pitDoc = await db.get(`pit_${$('#teamNumber').val()}`, { attachments: true, binary: true });
             hide();
             show(pitDoc);
         } catch (err) {

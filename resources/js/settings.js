@@ -1,23 +1,23 @@
 document.addEventListener('deviceready', async function () {
-    var databaseNameSet = document.getElementById("databaseName");
+    let databaseNameSet = document.getElementById("databaseName");
     databaseNameSet.value = localStorage.getItem('databaseName') || 'new2019';
-    var serverIpSet = document.getElementById("serverIp");
+    let serverIpSet = document.getElementById("serverIp");
     serverIpSet.value = localStorage.getItem('serverIp');
-    var scoutNameSet = document.getElementById("scoutName");
+    let scoutNameSet = document.getElementById("scoutName");
     scoutNameSet.value = localStorage.getItem('scoutName');
-    var serverUsernameSet = document.getElementById("serverUsername");
+    let serverUsernameSet = document.getElementById("serverUsername");
     serverUsernameSet.value = localStorage.getItem('serverUsername');
-    var serverPasswordSet = document.getElementById("serverPassword");
+    let serverPasswordSet = document.getElementById("serverPassword");
     serverPasswordSet.value = localStorage.getItem('serverPassword');
-    var sqLite = document.getElementById("sqLite");
+    let sqLite = document.getElementById("sqLite");
     sqLite.checked = JSON.parse(localStorage.getItem('sqLite'));
-    var matchTypeSet = document.getElementById("matchType");
+    let matchTypeSet = document.getElementById("matchType");
     matchTypeSet.value = localStorage.getItem('matchType') || "q";
 
     $('#Delete').on('click', async function(e){
         if (localStorage.getItem('settingsCheck') == 1){
-            var databaseName = localStorage.getItem('databaseName');
-            var db;
+            let databaseName = localStorage.getItem('databaseName');
+            let db;
             if (JSON.parse(localStorage.getItem('sqLite'))) {
                 db = new PouchDB(databaseName, {adapter: 'cordova-sqlite'});
                 console.log(db.adapter);
@@ -37,13 +37,13 @@ document.addEventListener('deviceready', async function () {
         }    
     });
     $('#Save').on('click', function (e) {
-        var databaseName = $('#databaseName').val();
-        var serverIp = $('#serverIp').val();
-        var scoutName = $('#scoutName').val();
-        var serverUsername = $('#serverUsername').val();
-        var serverPassword = $('#serverPassword').val();
-        var sqLiteChecked = sqLite.checked;
-        var matchType = $('#matchType').val();
+        let databaseName = $('#databaseName').val();
+        let serverIp = $('#serverIp').val();
+        let scoutName = $('#scoutName').val();
+        let serverUsername = $('#serverUsername').val();
+        let serverPassword = $('#serverPassword').val();
+        let sqLiteChecked = sqLite.checked;
+        let matchType = $('#matchType').val();
         function correct() {
             localStorage.setItem('databaseName', databaseName);
             localStorage.setItem('serverIp', serverIp);

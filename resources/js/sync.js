@@ -1,17 +1,17 @@
 document.addEventListener('deviceready', async function () {
     document.getElementById("sync").onclick = function () {
-        var databaseName = localStorage.getItem('databaseName');
-        var serverIp = localStorage.getItem('serverIp');
-        var serverUsername = localStorage.getItem('serverUsername');
-        var serverPassword = localStorage.getItem('serverPassword');
+        let databaseName = localStorage.getItem('databaseName');
+        let serverIp = localStorage.getItem('serverIp');
+        let serverUsername = localStorage.getItem('serverUsername');
+        let serverPassword = localStorage.getItem('serverPassword');
         document.getElementById("spinner").style.animation = "spin 2s linear infinite";
         document.getElementById("page").style.display = "none";
         document.getElementById("header").style.display = "none";
         document.getElementById("spinner").style.display = "block";
         document.getElementById("status").style.display = "block";
         if (localStorage.getItem('settingsCheck') == 1) {
-            var databaseName = localStorage.getItem('databaseName');
-            var db;
+            let databaseName = localStorage.getItem('databaseName');
+            let db;
             if (JSON.parse(localStorage.getItem('sqLite')) ) {
                 db = new PouchDB(databaseName, { adapter: 'cordova-sqlite' });
                 console.log(db.adapter);
@@ -32,8 +32,8 @@ document.addEventListener('deviceready', async function () {
                 timeout: 5000,
                 statusCode: {
                     200: function (response) {
-                        var status = 0
-                        var statusBox = document.getElementById('status');
+                        let status = 0
+                        let statusBox = document.getElementById('status');
                         PouchDB.sync(db, 'http://' + serverUsername + ':' + serverPassword + '@' + serverIp + ':5984/' + databaseName, {
                             live: false,
                             retry: true,
@@ -44,7 +44,7 @@ document.addEventListener('deviceready', async function () {
                             window.location.reload();
                         }).on('change', function (info) {
                             status = status + 1
-                            var statusString = status.toString();
+                            let statusString = status.toString();
                             statusBox.innerHTML = statusString;
                         }).on('complete', function (info) {
                             console.log('done');

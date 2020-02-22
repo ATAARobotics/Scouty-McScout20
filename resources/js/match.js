@@ -1,7 +1,8 @@
+"use strict";
 document.addEventListener('deviceready', async function () {
-    if (localStorage.getItem('settingsCheck') == 1){
-        var databaseName = localStorage.getItem('databaseName');
-        var db;
+    if (localStorage.getItem('settingsCheck') === 1){
+        let databaseName = localStorage.getItem('databaseName');
+        let db;
         if (JSON.parse(localStorage.getItem('sqLite'))) {
             db = new PouchDB(databaseName, {adapter: 'cordova-sqlite'});
             console.log(db.adapter);
@@ -12,7 +13,7 @@ document.addEventListener('deviceready', async function () {
         }
     } else {
         $('#Submit').prop('disabled', true);
-        window.alert("Check Settings!")
+        window.alert("Check Settings!");
     }
     function show(doc) {
         $('#autoCellsPickup').val(doc.autoCellsPickup);
@@ -104,7 +105,7 @@ document.addEventListener('deviceready', async function () {
 
     async function update() {
         try {
-            var matchDoc = await db.get(`${localStorage.getItem('matchType')}${$('#matchNumber').val()}_${$('#teamNumber').val()}`);
+            let matchDoc = await db.get(`${localStorage.getItem('matchType')}${$('#matchNumber').val()}_${$('#teamNumber').val()}`);
             hide();
             show(matchDoc);
         } catch (err) {
@@ -114,47 +115,47 @@ document.addEventListener('deviceready', async function () {
 
     document.getElementById('matchNumber').onkeyup = function() {
         update();
-    }
+    };
     document.getElementById('teamNumber').onkeyup = function() {
         update();
-    }
+    };
 
     document.getElementById("Submit").onclick = async function () {
-        var matchType = localStorage.getItem('matchType');
-        var matchNumber = $('#matchNumber').val();
-        var teamNumber = $('#teamNumber').val();
-        var startingLocation = parseInt($('input[name=startingLocation]:checked').val());
-        var movedBaseline = parseInt($('input[name=movedBaseline]:checked').val());
-        var autoCellsPickup = parseInt($('#autoCellsPickup').val());
-        var autoCellsDropped = parseInt($('#autocCellsDropped').val());
-        var autoCellsLow = parseInt($('#autocCellsLow').val());
-        var autoCellsHigh = parseInt($('#autoCellsHigh').val());
-        var autoCellsInner = parseInt($('#autoCellsInner').val());
-        var autoCellsAssist = parseInt($('#autoCellsAssist').val());
-        var autoComments = $('#autoCommentSection').val();        
-        var teleopCellsPickup = parseInt($('#teleopCellsPickup').val());
-        var teleopCellsDropped = parseInt($('#teleopCellsDropped').val());
-        var teleopCellsLow = parseInt($('#teleopCellsLow').val());
-        var teleopCellsHigh = parseInt($('teleopCellsHigh').val());
-        var teleopCellsInner = parseInt($('#teleopCellsInner').val());
-        var teleopCellsAssist = parseInt($('#teleopCellsAssist').val());
-        var rotationControl = parseInt($('input[name=rotationControl]:checked').val());
-        var positionControl = parseInt($('input[name=positionControl]:checked').val());
-        var penalties = parseInt($('#penalties').val());
-        var teleopComments = $('#teleopCommentSection').val();
-        var selfClimb = parseInt($('input[name=selfClimb]:checked').val());
-        var selfPark = parseInt($('input[name=selfPark]:checked').val());
-        var totalClimb = parseInt($('input[name=totalClimb]:checked').val());
-        var balanced = parseInt($('input[name=balanced]:checked').val());
-        var endgameComments = $('#endgameCommentSection').val();
-        var speed = parseInt($('input[name=speedRating]:checked').val());
-        var stability = parseInt($('input[name=stabilityRating]:checked').val());
-        var defense = parseInt($('input[name=defenseRating]:checked').val());
-        var primaryDefense = parseInt($('input[name=primaryDefense]:checked').val());
-        var anythingBreak = parseInt($('input[name=anythingBreak]:checked').val());
-        var dead = parseInt($('input[name=robotDead]:checked').val());
-        var generalComments = $('#generalCommentSection').val();
-        var doc = {
+        let matchType = localStorage.getItem('matchType');
+        let matchNumber = $('#matchNumber').val();
+        let teamNumber = $('#teamNumber').val();
+        let startingLocation = parseInt($('input[name=startingLocation]:checked').val());
+        let movedBaseline = parseInt($('input[name=movedBaseline]:checked').val());
+        let autoCellsPickup = parseInt($('#autoCellsPickup').val());
+        let autoCellsDropped = parseInt($('#autoCellsDropped').val());
+        let autoCellsLow = parseInt($('#autoCellsLow').val());
+        let autoCellsHigh = parseInt($('#autoCellsHigh').val());
+        let autoCellsInner = parseInt($('#autoCellsInner').val());
+        let autoCellsAssist = parseInt($('#autoCellsAssist').val());
+        let autoComments = $('#autoCommentSection').val();        
+        let teleopCellsPickup = parseInt($('#teleopCellsPickup').val());
+        let teleopCellsDropped = parseInt($('#teleopCellsDropped').val());
+        let teleopCellsLow = parseInt($('#teleopCellsLow').val());
+        let teleopCellsHigh = parseInt($('#teleopCellsHigh').val());
+        let teleopCellsInner = parseInt($('#teleopCellsInner').val());
+        let teleopCellsAssist = parseInt($('#teleopCellsAssist').val());
+        let rotationControl = parseInt($('input[name=rotationControl]:checked').val());
+        let positionControl = parseInt($('input[name=positionControl]:checked').val());
+        let penalties = parseInt($('#penalties').val());
+        let teleopComments = $('#teleopCommentSection').val();
+        let selfClimb = parseInt($('input[name=selfClimb]:checked').val());
+        let selfPark = parseInt($('input[name=selfPark]:checked').val());
+        let totalClimb = parseInt($('input[name=totalClimb]:checked').val());
+        let balanced = parseInt($('input[name=balanced]:checked').val());
+        let endgameComments = $('#endgameCommentSection').val();
+        let speed = parseInt($('input[name=speedRating]:checked').val());
+        let stability = parseInt($('input[name=stabilityRating]:checked').val());
+        let defense = parseInt($('input[name=defenseRating]:checked').val());
+        let primaryDefense = parseInt($('input[name=primaryDefense]:checked').val());
+        let anythingBreak = parseInt($('input[name=anythingBreak]:checked').val());
+        let dead = parseInt($('input[name=robotDead]:checked').val());
+        let generalComments = $('#generalCommentSection').val();
+        let doc = {
             _id: `${matchType}${matchNumber}_${teamNumber}`,
             scoutName: localStorage.getItem('scoutName'),
             startingLocation: startingLocation,
@@ -188,15 +189,15 @@ document.addEventListener('deviceready', async function () {
             anythingBreak: anythingBreak,
             dead: dead,
             generalComments: generalComments
-        }
-        if (localStorage.getItem('settingsCheck') == 1) {
+        };
+        if (localStorage.getItem('settingsCheck') === 1) {
             if (matchNumber && teamNumber) {
                 try {
                     let docPut = await db.put(doc);
                     window.alert("Submitted!");
                     window.location.reload();
                 } catch (err) {
-                    if (err.status == 409) {
+                    if (err.status === 409) {
                         let old = await db.get(`${matchType}${matchNumber}_${teamNumber}`);
                         doc._rev = old._rev;
                         let newDoc = await db.put(doc, {force: true});
@@ -205,17 +206,17 @@ document.addEventListener('deviceready', async function () {
                     }
                 }
             } else {
-                window.alert("Fill all fields!")
+                window.alert("Fill all fields!");
             }
         } else {
-            window.alert("Set settings first!")
+            window.alert("Set settings first!");
         }
-    }
+    };
 });
 
 function modifyAutoPickup_qty(val) {
-	var qty = document.getElementById('autoCellsPickup').value;
-	var new_qty = parseInt(qty, 10) + parseInt(val, 10);
+	let qty = document.getElementById('autoCellsPickup').value;
+	let new_qty = parseInt(qty, 10) + parseInt(val, 10);
 
 	if (new_qty < 0) {
 		new_qty = 0;
@@ -226,8 +227,8 @@ function modifyAutoPickup_qty(val) {
 }
 
 function modifyAutoDrop_qty(val) {
-	var qty = document.getElementById('autoCellsDropped').value;
-	var new_qty = parseInt(qty, 10) + parseInt(val, 10);
+	let qty = document.getElementById('autoCellsDropped').value;
+	let new_qty = parseInt(qty, 10) + parseInt(val, 10);
 
 	if (new_qty < 0) {
 		new_qty = 0;
@@ -238,8 +239,8 @@ function modifyAutoDrop_qty(val) {
 }
 
 function modifyAutoLow_qty(val) {
-	var qty = document.getElementById('autoCellsLow').value;
-	var new_qty = parseInt(qty, 10) + parseInt(val, 10);
+	let qty = document.getElementById('autoCellsLow').value;
+	let new_qty = parseInt(qty, 10) + parseInt(val, 10);
 
 	if (new_qty < 0) {
 		new_qty = 0;
@@ -250,8 +251,8 @@ function modifyAutoLow_qty(val) {
 }
 
 function modifyAutoHigh_qty(val) {
-	var qty = document.getElementById('autoCellsHigh').value;
-	var new_qty = parseInt(qty, 10) + parseInt(val, 10);
+	let qty = document.getElementById('autoCellsHigh').value;
+	let new_qty = parseInt(qty, 10) + parseInt(val, 10);
 
 	if (new_qty < 0) {
 		new_qty = 0;
@@ -262,8 +263,8 @@ function modifyAutoHigh_qty(val) {
 }
 
 function modifyAutoInner_qty(val) {
-	var qty = document.getElementById('autoCellsInner').value;
-	var new_qty = parseInt(qty, 10) + parseInt(val, 10);
+	let qty = document.getElementById('autoCellsInner').value;
+	let new_qty = parseInt(qty, 10) + parseInt(val, 10);
 
 	if (new_qty < 0) {
 		new_qty = 0;
@@ -274,8 +275,8 @@ function modifyAutoInner_qty(val) {
 }
 
 function modifyTeleopPickup_qty(val) {
-	var qty = document.getElementById('teleopCellsPickup').value;
-	var new_qty = parseInt(qty, 10) + parseInt(val, 10);
+	let qty = document.getElementById('teleopCellsPickup').value;
+	let new_qty = parseInt(qty, 10) + parseInt(val, 10);
 
 	if (new_qty < 0) {
 		new_qty = 0;
@@ -286,8 +287,8 @@ function modifyTeleopPickup_qty(val) {
 }
 
 function modifyTeleopDrop_qty(val) {
-	var qty = document.getElementById('teleopCellsDropped').value;
-	var new_qty = parseInt(qty, 10) + parseInt(val, 10);
+	let qty = document.getElementById('teleopCellsDropped').value;
+	let new_qty = parseInt(qty, 10) + parseInt(val, 10);
 
 	if (new_qty < 0) {
 		new_qty = 0;
@@ -298,8 +299,8 @@ function modifyTeleopDrop_qty(val) {
 }
 
 function modifyTeleopLow_qty(val) {
-	var qty = document.getElementById('teleopCellsLow').value;
-	var new_qty = parseInt(qty, 10) + parseInt(val, 10);
+	let qty = document.getElementById('teleopCellsLow').value;
+	let new_qty = parseInt(qty, 10) + parseInt(val, 10);
 
 	if (new_qty < 0) {
 		new_qty = 0;
@@ -310,8 +311,8 @@ function modifyTeleopLow_qty(val) {
 }
 
 function modifyTeleopHigh_qty(val) {
-	var qty = document.getElementById('teleopCellsHigh').value;
-	var new_qty = parseInt(qty, 10) + parseInt(val, 10);
+	let qty = document.getElementById('teleopCellsHigh').value;
+	let new_qty = parseInt(qty, 10) + parseInt(val, 10);
 
 	if (new_qty < 0) {
 		new_qty = 0;
@@ -322,8 +323,8 @@ function modifyTeleopHigh_qty(val) {
 }
 
 function modifyTeleopInner_qty(val) {
-	var qty = document.getElementById('teleopCellsInner').value;
-	var new_qty = parseInt(qty, 10) + parseInt(val, 10);
+	let qty = document.getElementById('teleopCellsInner').value;
+	let new_qty = parseInt(qty, 10) + parseInt(val, 10);
 
 	if (new_qty < 0) {
 		new_qty = 0;
@@ -334,8 +335,8 @@ function modifyTeleopInner_qty(val) {
 }
 
 function modifyAutoAssist_qty(val) {
-	var qty = document.getElementById('autoCellsAssist').value;
-	var new_qty = parseInt(qty, 10) + parseInt(val, 10);
+	let qty = document.getElementById('autoCellsAssist').value;
+	let new_qty = parseInt(qty, 10) + parseInt(val, 10);
 
 	if (new_qty < 0) {
 		new_qty = 0;
@@ -346,8 +347,8 @@ function modifyAutoAssist_qty(val) {
 }
 
 function modifyTeleopAssist_qty(val) {
-	var qty = document.getElementById('teleopCellsAssist').value;
-	var new_qty = parseInt(qty, 10) + parseInt(val, 10);
+	let qty = document.getElementById('teleopCellsAssist').value;
+	let new_qty = parseInt(qty, 10) + parseInt(val, 10);
 
 	if (new_qty < 0) {
 		new_qty = 0;
@@ -358,8 +359,8 @@ function modifyTeleopAssist_qty(val) {
 }
 
 function modifyPenalties_qty(val) {
-	var qty = document.getElementById('penalties').value;
-	var new_qty = parseInt(qty, 10) + parseInt(val, 10);
+	let qty = document.getElementById('penalties').value;
+	let new_qty = parseInt(qty, 10) + parseInt(val, 10);
 
 	if (new_qty < 0) {
 		new_qty = 0;
