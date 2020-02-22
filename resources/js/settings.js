@@ -1,23 +1,23 @@
 document.addEventListener('deviceready', async function () {
-    let databaseNameSet = document.getElementById("databaseName");
+    var databaseNameSet = document.getElementById("databaseName");
     databaseNameSet.value = localStorage.getItem('databaseName') || 'new2019';
-    let serverIpSet = document.getElementById("serverIp");
+    var serverIpSet = document.getElementById("serverIp");
     serverIpSet.value = localStorage.getItem('serverIp');
-    let scoutNameSet = document.getElementById("scoutName");
+    var scoutNameSet = document.getElementById("scoutName");
     scoutNameSet.value = localStorage.getItem('scoutName');
-    let serverUsernameSet = document.getElementById("serverUsername");
+    var serverUsernameSet = document.getElementById("serverUsername");
     serverUsernameSet.value = localStorage.getItem('serverUsername');
-    let serverPasswordSet = document.getElementById("serverPassword");
+    var serverPasswordSet = document.getElementById("serverPassword");
     serverPasswordSet.value = localStorage.getItem('serverPassword');
-    let sqLite = document.getElementById("sqLite");
+    var sqLite = document.getElementById("sqLite");
     sqLite.checked = JSON.parse(localStorage.getItem('sqLite'));
-    let matchTypeSet = document.getElementById("matchType");
+    var matchTypeSet = document.getElementById("matchType");
     matchTypeSet.value = localStorage.getItem('matchType') || "q";
 
     $('#Delete').on('click', async function(e){
         if (parseInt(localStorage.getItem('settingsCheck')) == 1){
-            let databaseName = localStorage.getItem('databaseName');
-            let db;
+            var databaseName = localStorage.getItem('databaseName');
+            var db;
             if (JSON.parse(localStorage.getItem('sqLite'))) {
                 db = new PouchDB(databaseName, {adapter: 'cordova-sqlite'});
                 console.log(db.adapter);
@@ -26,7 +26,7 @@ document.addEventListener('deviceready', async function () {
                 db = new PouchDB(databaseName);
                 console.log(db.adapter);
             }
-            let destroy = await db.destroy();
+            var destroy = await db.destroy();
             if (destroy.ok) {
                 window.alert("Local DB deleted!")
             } else {
@@ -37,13 +37,13 @@ document.addEventListener('deviceready', async function () {
         }    
     });
     $('#Save').on('click', function (e) {
-        let databaseName = $('#databaseName').val();
-        let serverIp = $('#serverIp').val();
-        let scoutName = $('#scoutName').val();
-        let serverUsername = $('#serverUsername').val();
-        let serverPassword = $('#serverPassword').val();
-        let sqLiteChecked = sqLite.checked;
-        let matchType = $('#matchType').val();
+        var databaseName = $('#databaseName').val();
+        var serverIp = $('#serverIp').val();
+        var scoutName = $('#scoutName').val();
+        var serverUsername = $('#serverUsername').val();
+        var serverPassword = $('#serverPassword').val();
+        var sqLiteChecked = sqLite.checked;
+        var matchType = $('#matchType').val();
         function correct() {
             localStorage.setItem('databaseName', databaseName);
             localStorage.setItem('serverIp', serverIp);
