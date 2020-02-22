@@ -9,7 +9,7 @@ document.addEventListener('deviceready', async function () {
         document.getElementById("header").style.display = "none";
         document.getElementById("spinner").style.display = "block";
         document.getElementById("status").style.display = "block";
-        if (localStorage.getItem('settingsCheck') == 1) {
+        if (parseInt(localStorage.getItem('settingsCheck')) == 1) {
             let databaseName = localStorage.getItem('databaseName');
             let db;
             if (JSON.parse(localStorage.getItem('sqLite')) ) {

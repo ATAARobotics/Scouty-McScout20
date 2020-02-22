@@ -1,6 +1,6 @@
 "use strict";
 document.addEventListener('deviceready', async function () {
-    if (localStorage.getItem('settingsCheck') === 1){
+    if (parseInt(localStorage.getItem('settingsCheck')) === 1){
         let databaseName = localStorage.getItem('databaseName');
         let db;
         if (JSON.parse(localStorage.getItem('sqLite'))) {
@@ -190,7 +190,7 @@ document.addEventListener('deviceready', async function () {
             dead: dead,
             generalComments: generalComments
         };
-        if (localStorage.getItem('settingsCheck') === 1) {
+        if (parseInt(localStorage.getItem('settingsCheck')) === 1) {
             if (matchNumber && teamNumber) {
                 try {
                     let docPut = await db.put(doc);

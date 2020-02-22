@@ -15,7 +15,7 @@ document.addEventListener('deviceready', async function () {
     matchTypeSet.value = localStorage.getItem('matchType') || "q";
 
     $('#Delete').on('click', async function(e){
-        if (localStorage.getItem('settingsCheck') == 1){
+        if (parseInt(localStorage.getItem('settingsCheck')) == 1){
             let databaseName = localStorage.getItem('databaseName');
             let db;
             if (JSON.parse(localStorage.getItem('sqLite'))) {

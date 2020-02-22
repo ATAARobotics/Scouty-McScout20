@@ -1,5 +1,5 @@
 document.addEventListener('deviceready', async function () {
-    if (localStorage.getItem('settingsCheck') == 1) {
+    if (parseInt(localStorage.getItem('settingsCheck')) == 1) {
         let databaseName = localStorage.getItem('databaseName');
         let db;
         if (JSON.parse(localStorage.getItem('sqLite'))) {
@@ -194,7 +194,7 @@ document.addEventListener('deviceready', async function () {
             comments: comments
 
         }
-        if (localStorage.getItem('settingsCheck') == 1) {
+        if (parseInt(localStorage.getItem('settingsCheck')) == 1) {
             if (teamNumber && 
                 robotAppearance != NaN && 
                 cellIntake && 
