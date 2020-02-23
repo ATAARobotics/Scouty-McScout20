@@ -136,12 +136,12 @@ files: |
                         None
                     </label>
                     <label id="positionControl" class="btn btn-secondary">
-                        <input type="radio" value="1" name="controlPanel" id="positionControl" autocomplete="off">
-                        Position
+                        <input type="radio" value="1" name="controlPanel" id="rotationControl" autocomplete="off">
+                        Rotation
                     </label>
                     <label id="rotationControl" class="btn btn-secondary">
-                        <input type="radio" value="2" name="controlPanel" id="rotationControl" autocomplete="off">
-                        Rotation
+                        <input type="radio" value="2" name="controlPanel" id="positionControl" autocomplete="off">
+                        Position
                     </label>
                 </div>
             </div>

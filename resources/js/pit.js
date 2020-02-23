@@ -100,6 +100,7 @@ document.addEventListener('deviceready', async function () {
         var robotPhoto2Url = URL.createObjectURL(doc._attachments['photo2.jpg'].data);
         var comments = doc.comments;
         $('#commentSection').val(`${comments}\n---EDIT---\n`);
+        $('#robotWeight').val(`${robotWeight}`);
         robotPhoto1Preview.src = robotPhoto1Url;
         robotPhoto2Preview.src = robotPhoto2Url;
         document.getElementById("robotPhoto1Preview").style.display = "block";
@@ -110,22 +111,20 @@ document.addEventListener('deviceready', async function () {
         $('#' + $('input[name=cellIntake]:checked').attr("id")).addClass('active');
         $("input[name=climbType][value=" + climbType + "]").prop('checked', true);
         $('#' + $('input[name=climbType]:checked').attr("id")).addClass('active');
-        $("input[name=robotcapacity][value=" + robotCapacity + "]").prop('checked', true);
+        $("input[name=robotCapacity][value=" + robotCapacity + "]").prop('checked', true);
         $('#' + $('input[name=robotCapacity]:checked').attr("id")).addClass('active');
         $("input[name=cellLowLevel][value=" + cellLowLevel + "]").prop('checked', true);
-        $('#' + $('input[name=cellLowlevel]:checked').attr("id")).addClass('active');
+        $('#' + $('input[name=cellLowLevel]:checked').attr("id")).addClass('active');
         $("input[name=cellHighLevel][value=" + cellHighLevel + "]").prop('checked', true);
         $('#' + $('input[name=cellHighLevel]:checked').attr("id")).addClass('active');
         $("input[name=cellInnerLevel][value=" + cellInnerLevel + "]").prop('checked', true);
         $('#' + $('input[name=cellInnerLevel]:checked').attr("id")).addClass('active');
         $("input[name=controlPanel][value=" + controlPanel + "]").prop('checked', true);
         $('#' + $('input[name=controlPanel]:checked').attr("id")).addClass('active');
-        $("input[name=robotWeight][value=" + robotWeight + "]").prop('checked', true);
-        $('#' + $('input[name=robotWeight]:checked').attr("id")).addClass('active');
         $("input[name=robotDone][value=" + robotDone + "]").prop('checked', true);
+        $('#' + $('input[name=robotDone]:checked').attr("id")).addClass('active');
         $("input[name=robotHeight][value=" + robotHeight + "]").prop('checked', true);
         $('#' + $('input[name=robotHeight]:checked').attr("id")).addClass('active');
-        $('#' + $('input[name=robotDone]:checked').attr("id")).addClass('active');
         $("input[name=robotBroken][value=" + robotBroken + "]").prop('checked', true);
         $('#' + $('input[name=robotBroken]:checked').attr("id")).addClass('active');
     }

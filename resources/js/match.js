@@ -27,7 +27,7 @@ document.addEventListener('deviceready', async function () {
         $('#teleopCellsLow').val(doc.teleopCellsLow);
         $('#teleopCellsHigh').val(doc.teleopCellsHigh);
         $('#teleopCellsInner').val(doc.teleopCellsInner);
-        $('#teleopCellsAssist').val(doc.teleopCellsInner);
+        $('#teleopCellsAssist').val(doc.teleopCellsAssist);
         $('#penalties').val(doc.penalties);
 
         $("input[name=startingLocation][value=" + doc.startingLocation + "]").prop('checked', true);
