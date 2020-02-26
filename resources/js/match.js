@@ -13,7 +13,7 @@ document.addEventListener('deviceready', async function () {
         }
     } else {
         $('#Submit').prop('disabled', true);
-        window.alert("Check Settings!");
+        window.alert("Fill out everything in the settings tab, otherwise saving might not work!");
     }
     function show(doc) {
         $('#autoCellsPickup').val(doc.autoCellsPickup);
@@ -65,7 +65,7 @@ document.addEventListener('deviceready', async function () {
         $('#teleopCommentSection').val(`${doc.teleopComments}\n---EDIT---\n`);
         $('#endgameCommentSection').val(`${doc.endgameComments}\n---EDIT---\n`);
         $('#generalCommentSection').val(`${doc.generalComments}\n---EDIT---\n`);
-        
+
     }
 
     function hide() {
@@ -132,7 +132,7 @@ document.addEventListener('deviceready', async function () {
         var autoCellsHigh = parseInt($('#autoCellsHigh').val());
         var autoCellsInner = parseInt($('#autoCellsInner').val());
         var autoCellsAssist = parseInt($('#autoCellsAssist').val());
-        var autoComments = $('#autoCommentSection').val();        
+        var autoComments = $('#autoCommentSection').val();
         var teleopCellsPickup = parseInt($('#teleopCellsPickup').val());
         var teleopCellsDropped = parseInt($('#teleopCellsDropped').val());
         var teleopCellsLow = parseInt($('#teleopCellsLow').val());
@@ -206,10 +206,10 @@ document.addEventListener('deviceready', async function () {
                     }
                 }
             } else {
-                window.alert("Fill all fields!");
+                window.alert("Fill out all fields!");
             }
         } else {
-            window.alert("Set settings first!");
+            window.alert("Some settings incorrect; Fill out the settings tab and make sure everything is correct.");
         }
     };
 });
