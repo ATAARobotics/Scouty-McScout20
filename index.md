@@ -254,7 +254,7 @@ files: |
 			</div>
         </div>
         <div class="row" style="margin-bottom: 15px">
-            <div class="col-4">
+            <div class="col-2">
                 <label class="mr-sm-2" style="display: block" for="rotationControl">Rotation Control</label>
                 <div id="rotationControl" class="btn-group btn-group-toggle" data-toggle="buttons">
                     <label id="rotationControlYes" class="btn btn-secondary">
@@ -267,7 +267,7 @@ files: |
                     </label>
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-2">
                 <label class="mr-sm-2" style="display: block" for="positionControl">Position Control</label>
                 <div id="positionControl" class="btn-group btn-group-toggle" data-toggle="buttons">
                     <label id="positionControlYes" class="btn btn-secondary">
@@ -280,7 +280,24 @@ files: |
                     </label>
                 </div>
             </div>
-            <div class="col-lg col-md-3 col-sm-4 col-4">
+            <div class="col-4">
+                <label class="mr-sm-2" style="display: block" for="penaltyCard">Card Earned (If Yes, comment)</label>
+                <div id="penaltyCard" class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label id="noPenaltyCard" class="btn btn-secondary">
+                        <input type="radio" value="0" name="penaltyCard" id="noPenaltyCard" autocomplete="off">
+                        NA
+                    </label>
+                    <label id="yellowPenaltyCard" class="btn btn-secondary">
+                        <input type="radio" value="1" name="penaltyCard" id="yellowPenaltyCard" autocomplete="off">
+                        Yellow
+                    </label>
+                    <label id="redPenaltyCard" class="btn btn-secondary">
+                        <input type="radio" value="2" name="penaltyCard" id="redPenaltyCard" autocomplete="off">
+                        Red
+                    </label>
+                </div>
+            </div>
+            <div class="col-4">
 				<div class="row">
 					<div class="col-md">
 						<label style="margin-bottom: 0px" for="penalties">Penalties</label>

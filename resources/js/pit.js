@@ -136,11 +136,11 @@ document.addEventListener('deviceready', async function () {
         $('#' + $('input[name=cellHighLevel]:checked').attr("id")).removeClass('active');
         $('#' + $('input[name=cellInnerLevel]:checked').attr("id")).removeClass('active');
         $('#' + $('input[name=controlPanel]:checked').attr("id")).removeClass('active');
-        $('#' + $('input[name=robotWeight]:checked').attr("id")).removeClass('active');
         $('#' + $('input[name=robotAppearance]:checked').attr("id")).removeClass('active');
         $('#' + $('input[name=robotHeight]:checked').attr("id")).removeClass('active');
         $('#' + $('input[name=robotDone]:checked').attr("id")).removeClass('active');
         $('#' + $('input[name=robotBroken]:checked').attr("id")).removeClass('active');
+        $('#robotWeight').val('');
         $('#commentSection').val('');
         $('input[type=radio]').attr('checked', false);
         document.getElementById("robotPhoto1Preview").style.display = "none";

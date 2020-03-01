@@ -39,6 +39,8 @@ document.addEventListener('deviceready', async function () {
         $('#' + $('input[name=rotationControl]:checked').attr("id")).addClass('active');
         $("input[name=positionControl][value=" + doc.positionControl + "]").prop('checked', true);
         $('#' + $('input[name=positionControl]:checked').attr("id")).addClass('active');
+        $("input[name=penaltyCard][value=" + doc.penaltyCard + "]").prop('checked', true);
+        $('#' + $('input[name=penaltyCard]:checked').attr("id")).addClass('active');
         $("input[name=selfClimb][value=" + doc.selfClimb + "]").prop('checked', true);
         $('#' + $('input[name=selfClimb]:checked').attr("id")).addClass('active');
         $("input[name=selfPark][value=" + doc.selfPark + "]").prop('checked', true);
@@ -65,7 +67,6 @@ document.addEventListener('deviceready', async function () {
         $('#teleopCommentSection').val(`${doc.teleopComments}\n---EDIT---\n`);
         $('#endgameCommentSection').val(`${doc.endgameComments}\n---EDIT---\n`);
         $('#generalCommentSection').val(`${doc.generalComments}\n---EDIT---\n`);
-        
     }
 
     function hide() {
@@ -86,6 +87,7 @@ document.addEventListener('deviceready', async function () {
         $('#penalties').val("0");
         $('#' + $('input[name=rotationControl]:checked').attr("id")).removeClass('active');
         $('#' + $('input[name=positionControl]:checked').attr("id")).removeClass('active');
+        $('#' + $('input[name=penaltyCard:checked').attr("id")).removeClass('active');
         $('#' + $('input[name=selfClimb]:checked').attr("id")).removeClass('active');
         $('#' + $('input[name=selfPark]:checked').attr("id")).removeClass('active');
         $('#' + $('input[name=totalClimb]:checked').attr("id")).removeClass('active');
@@ -141,6 +143,7 @@ document.addEventListener('deviceready', async function () {
         var teleopCellsAssist = parseInt($('#teleopCellsAssist').val());
         var rotationControl = parseInt($('input[name=rotationControl]:checked').val());
         var positionControl = parseInt($('input[name=positionControl]:checked').val());
+        var penaltyCard = parseInt($('input[name=penaltyCard]:checked').val());
         var penalties = parseInt($('#penalties').val());
         var teleopComments = $('#teleopCommentSection').val();
         var selfClimb = parseInt($('input[name=selfClimb]:checked').val());
@@ -166,7 +169,6 @@ document.addEventListener('deviceready', async function () {
             autoCellsHigh: autoCellsHigh,
             autoCellsInner: autoCellsInner,
             autoCellsAssist: autoCellsAssist,
-            autoComments: autoComments,
             teleopCellsPickup: teleopCellsPickup,
             teleopCellsDropped: teleopCellsDropped,
             teleopCellsLow: teleopCellsLow,
@@ -175,19 +177,21 @@ document.addEventListener('deviceready', async function () {
             teleopCellsAssist: teleopCellsAssist,
             rotationControl: rotationControl,
             positionControl: positionControl,
-            teleopComments: teleopComments,
+            penaltyCard: penaltyCard,
             penalties: penalties,
             selfClimb: selfClimb,
             selfPark: selfPark,
             totalClimb: totalClimb,
             balanced: balanced,
-            endgameComments: endgameComments,
             speed: speed,
             stability: stability,
             defense: defense,
             primaryDefense: primaryDefense,
             anythingBreak: anythingBreak,
             dead: dead,
+            autoComments: autoComments,
+            teleopComments: teleopComments,
+            endgameComments: endgameComments,
             generalComments: generalComments
         };
         if (parseInt(localStorage.getItem('settingsCheck')) === 1) {
