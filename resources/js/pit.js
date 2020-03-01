@@ -1,3 +1,5 @@
+"use strict";
+
 document.addEventListener('deviceready', async function () {
     if (parseInt(localStorage.getItem('settingsCheck')) == 1) {
         var databaseName = localStorage.getItem('databaseName');
@@ -12,7 +14,7 @@ document.addEventListener('deviceready', async function () {
         }
     } else {
         $('#Submit').prop('disabled', true);
-        window.alert("Check Settings!")
+        window.alert("Fill out everything in the settings tab, otherwise saving might not work!")
     }
     function b64toBlob(b64Data, contentType, sliceSize) {
         contentType = contentType || '';
@@ -194,10 +196,10 @@ document.addEventListener('deviceready', async function () {
 
         }
         if (parseInt(localStorage.getItem('settingsCheck')) == 1) {
-            if (teamNumber && 
-                robotAppearance != NaN && 
-                cellIntake && 
-                climbType != NaN && 
+            if (teamNumber &&
+                robotAppearance != NaN &&
+                cellIntake &&
+                climbType != NaN &&
                 robotCapacity &&
                 cellLowLevel != NaN &&
                 cellHighLevel &&
@@ -232,7 +234,7 @@ document.addEventListener('deviceready', async function () {
                 window.alert("Fill all fields!")
             }
         } else {
-            window.alert("Set settings first!")
+            window.alert("Some settings incorrect; Fill out the settings tab and make sure everything is correct.")
         }
     }
     document.getElementById("teamNumber").onkeyup = async function () {
