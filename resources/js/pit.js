@@ -198,11 +198,11 @@ document.addEventListener('deviceready', async function () {
         if (parseInt(localStorage.getItem('settingsCheck')) == 1) {
             if (teamNumber &&
                 robotAppearance != NaN &&
-                cellIntake &&
+                cellIntake != NaN &&
                 climbType != NaN &&
                 robotCapacity &&
                 cellLowLevel != NaN &&
-                cellHighLevel &&
+                cellHighLevel != NaN &&
                 cellInnerLevel != NaN &&
                 robotWeight &&
                 robotDone != NaN &&
