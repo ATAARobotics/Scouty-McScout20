@@ -1,7 +1,13 @@
-.sass-cache
-.jekyll-metadata
-app/www
-app/platforms
-app/plugins
-app/node_modules
-!app/res/icon
+node_modules/
+.expo/
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+
+# macOS
+.DS_Store
