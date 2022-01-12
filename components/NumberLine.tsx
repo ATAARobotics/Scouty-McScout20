@@ -5,11 +5,11 @@ const style = StyleSheet.create({
 	container: {
 		display: "flex",
 		flexDirection: "column",
-		marginRight: "1rem",
+		marginRight: 12,
 	},
 	text: {
-		width: "10rem",
-		height: "2rem",
+		width: 240,
+		height: 24,
 		borderRadius: 6,
 		borderStyle: "solid",
 		borderWidth: 2,

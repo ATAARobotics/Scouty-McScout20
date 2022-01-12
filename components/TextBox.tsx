@@ -5,10 +5,10 @@ const style = StyleSheet.create({
 	container: {
 		display: "flex",
 		flexDirection: "column",
-		marginRight: "1rem",
+		marginRight: 12,
 	},
 	text: {
-		height: "10rem",
+		height: 240,
 		borderRadius: 6,
 		borderStyle: "solid",
 		borderWidth: 2,
