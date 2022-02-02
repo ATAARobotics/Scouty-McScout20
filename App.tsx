@@ -3,7 +3,5 @@ import React from "react";
 import Match from "./pages/Match";
 
 export default function App() {
-	return (
-		<Match/>
-	);
+  return <Match />;
 }

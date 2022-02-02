@@ -1,26 +1,30 @@
-import React from 'react';
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import React from "react";
+import { Button, StyleSheet, Text, TextInput, View } from "react-native";
 
 const style = StyleSheet.create({
+	label: {
+		color: "#ffffff",
+	},
 	container: {
-		display: "flex",
+		flex: 1,
 		flexDirection: "column",
 		marginRight: 12,
 	},
 	panel: {
-		display: "flex",
+		flex: 1,
 		flexDirection: "row",
 	},
 	text: {
+		color: "#ffffff",
 		width: 36,
 		borderRadius: 6,
 		borderStyle: "solid",
 		borderWidth: 2,
-		borderColor: "#000000",
+		borderColor: "#ffffff",
 		marginLeft: 4,
 		marginRight: 4,
 		textAlign: "center",
-	}
+	},
 });
 
 interface NumberUpDownProps {
@@ -28,7 +32,10 @@ interface NumberUpDownProps {
 	setState?: (state: number) => void,
 }
 
-export default function NumberUpDown(props: NumberUpDownProps) {
+/**
+ * @param props
+ */
+export default function NumberUpDown(props: NumberUpDownProps): JSX.Element {
 	const [value, setValue] = React.useState(0);
 	React.useEffect(() => {
 		if (props.setState) {
@@ -37,11 +44,11 @@ export default function NumberUpDown(props: NumberUpDownProps) {
 	}, [value]);
 	return (
 		<View style={style.container}>
-			<Text>{props.label}</Text>
+			<Text style={style.label}>{props.label}</Text>
 			<View style={style.panel}>
 				<Button onPress={()=>setValue(Math.max(value-1, 0))} title="  - " color="#ea3017"/>
 				<TextInput style={style.text} keyboardType="numeric" onChangeText={value=>{
-					if (value == "") {
+					if (value === "") {
 						value = "0";
 					}
 					const number = parseInt(value);

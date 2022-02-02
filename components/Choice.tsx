@@ -1,14 +1,17 @@
-import React from 'react';
-import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import React from "react";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 
 const style = StyleSheet.create({
+	label: {
+		color: "#ffffff",
+	},
 	container: {
-		display: "flex",
+		flex: 1,
 		flexDirection: "column",
 		marginRight: 12,
 	},
 	buttons: {
-		display: "flex",
+		flex: 1,
 		flexDirection: "row",
 	},
 	borderRight: {
@@ -31,7 +34,7 @@ const style = StyleSheet.create({
 	},
 	buttonText: {
 		color: "#ffffff",
-	}
+	},
 });
 
 interface ChoiceProps {
@@ -40,8 +43,11 @@ interface ChoiceProps {
 	setState?: (state: number | undefined) => void,
 }
 
-export default function Choice(props: ChoiceProps) {
-	let [choice, setChoice] = React.useState<number>();
+/**
+ * @param props
+ */
+export default function Choice(props: ChoiceProps): JSX.Element {
+	const [choice, setChoice] = React.useState<number>();
 	React.useEffect(() => {
 		if (props.setState) {
 			props.setState(choice);
@@ -49,7 +55,7 @@ export default function Choice(props: ChoiceProps) {
 	}, [choice]);
 	return (
 		<View style={style.container}>
-			<Text>{props.label}</Text>
+			<Text style={style.label}>{props.label}</Text>
 			<View style={style.buttons}>
 				{
 					props.options.map(
@@ -57,13 +63,13 @@ export default function Choice(props: ChoiceProps) {
 							<Pressable
 								key = {index}
 								style={[
-									(index == choice ? style.buttonPress : style.buttonUnpress),
-									(index == 0 ? style.borderLeft : index == props.options.length-1 ? style.borderRight : {})
+									(index === choice ? style.buttonPress : style.buttonUnpress),
+									(index === 0 ? style.borderLeft : index === props.options.length-1 ? style.borderRight : {}),
 								]}
 								onPress={()=>setChoice(index)}
 							>
 								<Text style={style.buttonText}>{label}</Text>
-							</Pressable>
+							</Pressable>,
 					)
 				}
 			</View>

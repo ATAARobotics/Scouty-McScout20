@@ -1,0 +1,254 @@
+diff --git a/App.tsx b/App.tsx
+index b79db57..ae13edb 100644
+--- a/App.tsx
++++ b/App.tsx
+@@ -3,7 +3,5 @@ import React from "react";
+ import Match from "./pages/Match";
+ 
+ export default function App() {
+-	return (
+-		<Match/>
+-	);
++  return <Match />;
+ }
+diff --git a/app.json b/app.json
+index 4735be2..b52dac8 100644
+--- a/app.json
++++ b/app.json
+@@ -3,7 +3,7 @@
+     "name": "Scouty-McScout22",
+     "slug": "Scouty-McScout22",
+     "version": "1.0.0",
+-    "orientation": "portrait",
++    "orientation": "landscape",
+     "icon": "./assets/icon.png",
+     "splash": {
+       "image": "./assets/splash.png",
+@@ -13,9 +13,7 @@
+     "updates": {
+       "fallbackToCacheTimeout": 0
+     },
+-    "assetBundlePatterns": [
+-      "**/*"
+-    ],
++    "assetBundlePatterns": ["**/*"],
+     "ios": {
+       "supportsTablet": true
+     },
+diff --git a/assets/ataa.png b/assets/ataa.png
+new file mode 100644
+index 0000000..1b3552f
+Binary files /dev/null and b/assets/ataa.png differ
+diff --git a/babel.config.js b/babel.config.js
+index 2900afe..761bd9d 100644
+--- a/babel.config.js
++++ b/babel.config.js
+@@ -1,6 +1,11 @@
+-module.exports = function(api) {
++module.exports = function (api) {
+   api.cache(true);
+   return {
+-    presets: ['babel-preset-expo'],
++    presets: [
++      "@babel/preset-env",
++      "@babel/preset-react",
++      "@babel/preset-typescript",
++      "@babel/preset-flow",
++    ],
+   };
+ };
+diff --git a/components/Header.tsx b/components/Header.tsx
+new file mode 100644
+index 0000000..2f23861
+--- /dev/null
++++ b/components/Header.tsx
+@@ -0,0 +1,32 @@
++import React from "react";
++import { Image, View, StyleSheet } from "react-native";
++
++const style = StyleSheet.create({
++  image: {
++    flex: 1,
++    width: 75,
++    height: 75,
++    paddingRight: 130,
++    marginRight: "100%",
++    resizeMode: "contain",
++  },
++});
++
++export default function Header() {
++  return (
++    <View
++      style={{
++        display: "flex",
++        flexDirection: "row",
++        flex: 1,
++        borderWidth: 24,
++        borderBottomWidth: 0,
++        marginBottom: 0,
++
++        borderColor: "#ffffff",
++      }}
++    >
++      <Image source={require("../assets/ataa.png")} style={style.image} />
++    </View>
++  );
++}
+diff --git a/components/NumberLine.tsx b/components/NumberLine.tsx
+index ab25141..cb5c4d3 100644
+--- a/components/NumberLine.tsx
++++ b/components/NumberLine.tsx
+@@ -1,41 +1,58 @@
+-import React from 'react';
+-import { StyleSheet, Text, TextInput, View } from 'react-native';
++import React from "react";
++import {
++  StyleSheet,
++  Text,
++  TextInput,
++  View,
++  StyleProp,
++  ViewStyle,
++} from "react-native";
+ 
+ const style = StyleSheet.create({
+-	container: {
+-		display: "flex",
+-		flexDirection: "column",
+-		marginRight: 12,
+-	},
+-	text: {
+-		width: 240,
+-		height: 24,
+-		borderRadius: 6,
+-		borderStyle: "solid",
+-		borderWidth: 2,
+-		borderColor: "#000000",
+-	},
++  container: {
++    display: "flex",
++    flexDirection: "column",
++    width: "32%",
++    paddingBottom: 20,
++  },
++  text: {
++    height: 36,
++    borderRadius: 4,
++    borderStyle: "solid",
++    borderWidth: 2,
++    borderColor: "#000000",
++    paddingLeft: 10,
++  },
+ });
+ 
+ interface NumberLineProps {
+-	label: string;
++  label: string;
++  maxLength: number;
++  style?: StyleProp<ViewStyle>;
+ }
+ 
+ export default function NumberLine(props: NumberLineProps) {
+-	const [number, setNumber] = React.useState<number>();
+-	return (
+-		<View style={style.container}>
+-			<Text>{props.label}</Text>
+-			<TextInput style={style.text} onChangeText={value=>{
+-				if (value == "") {
+-					setNumber(undefined);
+-				} else {
+-					const number = parseInt(value);
+-					if (!isNaN(number)) {
+-						setNumber(number);
+-					}
+-				}
+-			}} placeholder={props.label} value={number == undefined ? "" : number.toString()}></TextInput>
+-		</View>
+-	);
++  const [number, setNumber] = React.useState<number>();
++  return (
++    <View style={[style.container, props.style]}>
++      <Text>{props.label}</Text>
++      <TextInput
++        keyboardType="numeric"
++        maxLength={props.maxLength}
++        style={style.text}
++        onChangeText={(value) => {
++          if (value == "") {
++            setNumber(undefined);
++          } else {
++            const number = parseInt(value);
++            if (!isNaN(number)) {
++              setNumber(number);
++            }
++          }
++        }}
++        placeholder={props.label}
++        value={number == undefined ? "" : number.toString()}
++      ></TextInput>
++    </View>
++  );
+ }
+diff --git a/components/TextBox.tsx b/components/TextBox.tsx
+index 3f5d255..06cbcb1 100644
+--- a/components/TextBox.tsx
++++ b/components/TextBox.tsx
+@@ -1,30 +1,36 @@
+-import React from 'react';
+-import { StyleSheet, Text, TextInput, View } from 'react-native';
++import React from "react";
++import { StyleSheet, Text, TextInput, View } from "react-native";
+ 
+ const style = StyleSheet.create({
+-	container: {
+-		display: "flex",
+-		flexDirection: "column",
+-		marginRight: 12,
+-	},
+-	text: {
+-		height: 240,
+-		borderRadius: 6,
+-		borderStyle: "solid",
+-		borderWidth: 2,
+-		borderColor: "#000000",
+-	}
++  container: {
++    display: "flex",
++    flexDirection: "column",
++    borderRightWidth: 36,
++    borderRightColor: "#f0f0f0",
++    borderWidth: 24,
++    borderTopWidth: 0,
++    borderColor: "#f0f0f0",
++    backgroundColor: "#f0f0f0",
++  },
++  text: {
++    height: 240,
++    borderRadius: 6,
++    borderStyle: "solid",
++    borderWidth: 1,
++    borderColor: "#b0b0b0",
++    backgroundColor: "#ffffff",
++  },
+ });
+ 
+ interface TextBoxProps {
+-	label: string;
++  label: string;
+ }
+ 
+ export default function TextBox(props: TextBoxProps) {
+-	return (
+-		<View style={style.container}>
+-			<Text>{props.label}</Text>
+-			<TextInput style={style.text} spellCheck multiline></TextInput>
+-		</View>
+-	);
++  return (
++    <View style={style.container}>
++      <Text>{props.label}</Text>
++      <TextInput style={style.text} spellCheck multiline></TextInput>
++    </View>
++  );
+ }
