@@ -19,10 +19,16 @@ const style = StyleSheet.create({
 
 interface NumberLineProps {
 	label: string;
+	setState?: (state: number | undefined) => void,
 }
 
 export default function NumberLine(props: NumberLineProps) {
 	const [number, setNumber] = React.useState<number>();
+	React.useEffect(() => {
+		if (props.setState) {
+			props.setState(number);
+		}
+	}, [number]);
 	return (
 		<View style={style.container}>
 			<Text>{props.label}</Text>

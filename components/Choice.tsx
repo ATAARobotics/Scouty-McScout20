@@ -37,10 +37,16 @@ const style = StyleSheet.create({
 interface ChoiceProps {
 	options: string[];
 	label: string;
+	setState?: (state: number | undefined) => void,
 }
 
 export default function Choice(props: ChoiceProps) {
 	let [choice, setChoice] = React.useState<number>();
+	React.useEffect(() => {
+		if (props.setState) {
+			props.setState(choice);
+		}
+	}, [choice]);
 	return (
 		<View style={style.container}>
 			<Text>{props.label}</Text>

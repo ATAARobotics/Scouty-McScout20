@@ -25,10 +25,16 @@ const style = StyleSheet.create({
 
 interface NumberUpDownProps {
 	label: string;
+	setState?: (state: number) => void,
 }
 
 export default function NumberUpDown(props: NumberUpDownProps) {
 	const [value, setValue] = React.useState(0);
+	React.useEffect(() => {
+		if (props.setState) {
+			props.setState(value);
+		}
+	}, [value]);
 	return (
 		<View style={style.container}>
 			<Text>{props.label}</Text>

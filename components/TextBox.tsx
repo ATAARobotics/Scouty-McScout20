@@ -18,13 +18,18 @@ const style = StyleSheet.create({
 
 interface TextBoxProps {
 	label: string;
+	setState?: (state: string) => void,
 }
 
 export default function TextBox(props: TextBoxProps) {
 	return (
 		<View style={style.container}>
 			<Text>{props.label}</Text>
-			<TextInput style={style.text} spellCheck multiline></TextInput>
+			<TextInput onChange={e => {
+				if (props.setState) {
+					props.setState(e.target.value);
+				}
+			}} style={style.text} spellCheck multiline></TextInput>
 		</View>
 	);
 }
