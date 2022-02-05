@@ -29,7 +29,8 @@ const style = StyleSheet.create({
 
 interface NumberUpDownProps {
 	label: string;
-	setState?: (state: number) => void,
+	setState?: (state: number) => void;
+	state?: number;
 }
 
 /**
@@ -46,17 +47,34 @@ export default function NumberUpDown(props: NumberUpDownProps): JSX.Element {
 		<View style={style.container}>
 			<Text style={style.label}>{props.label}</Text>
 			<View style={style.panel}>
-				<Button onPress={()=>setValue(Math.max(value-1, 0))} title="  - " color="#ea3017"/>
-				<TextInput style={style.text} keyboardType="numeric" onChangeText={value=>{
-					if (value === "") {
-						value = "0";
+				<Button
+					onPress={() => setValue(Math.max(value - 1, 0))}
+					title="  - "
+					color="#ea3017"
+				/>
+				<TextInput
+					style={style.text}
+					keyboardType="numeric"
+					onChangeText={(value) => {
+						if (value === "") {
+							value = "0";
+						}
+						const number = parseInt(value);
+						if (!isNaN(number)) {
+							setValue(Math.min(Math.max(number, 0), 100));
+						}
+					}}
+					value={
+						props.state === undefined
+							? value.toString()
+							: props.state.toString()
 					}
-					const number = parseInt(value);
-					if (!isNaN(number)) {
-						setValue(Math.min(Math.max(number, 0), 100));
-					}
-				}} value={value.toString()}/>
-				<Button onPress={()=>setValue(Math.min(value+1, 100))} title=" + " color="#4cea17"/>
+				/>
+				<Button
+					onPress={() => setValue(Math.min(value + 1, 100))}
+					title=" + "
+					color="#4cea17"
+				/>
 			</View>
 		</View>
 	);

@@ -40,7 +40,8 @@ const style = StyleSheet.create({
 interface ChoiceProps {
 	options: string[];
 	label: string;
-	setState?: (state: number | undefined) => void,
+	setState?: (state: number | undefined) => void;
+	state?: number;
 }
 
 /**
@@ -57,21 +58,25 @@ export default function Choice(props: ChoiceProps): JSX.Element {
 		<View style={style.container}>
 			<Text style={style.label}>{props.label}</Text>
 			<View style={style.buttons}>
-				{
-					props.options.map(
-						(label, index) =>
-							<Pressable
-								key = {index}
-								style={[
-									(index === choice ? style.buttonPress : style.buttonUnpress),
-									(index === 0 ? style.borderLeft : index === props.options.length-1 ? style.borderRight : {}),
-								]}
-								onPress={()=>setChoice(index)}
-							>
-								<Text style={style.buttonText}>{label}</Text>
-							</Pressable>,
-					)
-				}
+				{props.options.map((label, index) => (
+					<Pressable
+						key={index}
+						style={[
+							index ===
+							(props.state === undefined ? choice : props.state)
+								? style.buttonPress
+								: style.buttonUnpress,
+							index === 0
+								? style.borderLeft
+								: index === props.options.length - 1
+								? style.borderRight
+								: {},
+						]}
+						onPress={() => setChoice(index)}
+					>
+						<Text style={style.buttonText}>{label}</Text>
+					</Pressable>
+				))}
 			</View>
 		</View>
 	);

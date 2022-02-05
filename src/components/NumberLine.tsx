@@ -23,7 +23,8 @@ const style = StyleSheet.create({
 
 interface NumberLineProps {
 	label: string;
-	setState?: (state: number | undefined) => void,
+	setState?: (state: number | undefined) => void;
+	state?: number;
 }
 
 /**
@@ -31,24 +32,36 @@ interface NumberLineProps {
  */
 export default function NumberLine(props: NumberLineProps): JSX.Element {
 	const [number, setNumber] = React.useState<number>();
-	React.useEffect(() => {
-		if (props.setState) {
-			props.setState(number);
-		}
-	}, [number]);
 	return (
 		<View style={style.container}>
 			<Text style={style.label}>{props.label}</Text>
-			<TextInput style={style.text} onChangeText={value=>{
-				if (value === "") {
-					setNumber(undefined);
-				} else {
-					const number = parseInt(value);
-					if (!isNaN(number)) {
-						setNumber(number);
+			<TextInput
+				style={style.text}
+				onChangeText={(value) => {
+					if (value === "") {
+						if (props.setState) {
+							props.setState(undefined);
+						}
+						setNumber(undefined);
+					} else {
+						const number = parseInt(value);
+						if (!isNaN(number)) {
+							if (props.setState) {
+								props.setState(number);
+							}
+							setNumber(number);
+						}
 					}
+				}}
+				placeholder={props.label}
+				value={
+					props.state === undefined
+						? number === undefined
+							? ""
+							: number.toString()
+						: props.state.toString()
 				}
-			}} placeholder={props.label} value={number === undefined ? "" : number.toString()}></TextInput>
+			></TextInput>
 		</View>
 	);
 }

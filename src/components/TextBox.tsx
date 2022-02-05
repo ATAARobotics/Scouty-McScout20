@@ -22,7 +22,8 @@ const style = StyleSheet.create({
 
 interface TextBoxProps {
 	label: string;
-	setState?: (state: string) => void,
+	setState?: (state: string) => void;
+	state?: string;
 }
 
 /**
@@ -32,11 +33,17 @@ export default function TextBox(props: TextBoxProps): JSX.Element {
 	return (
 		<View style={style.container}>
 			<Text style={style.label}>{props.label}</Text>
-			<TextInput onChangeText={text => {
-				if (props.setState) {
-					props.setState(text);
-				}
-			}} style={style.text} spellCheck multiline></TextInput>
+			<TextInput
+				onChangeText={(text) => {
+					if (props.setState) {
+						props.setState(text);
+					}
+				}}
+				value={props.state}
+				style={style.text}
+				spellCheck
+				multiline
+			></TextInput>
 		</View>
 	);
 }
