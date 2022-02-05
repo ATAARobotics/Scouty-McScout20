@@ -7,11 +7,12 @@ const style = StyleSheet.create({
 	},
 	container: {
 		flex: 1,
-		flexDirection: "column",
 		marginRight: 12,
 	},
 	buttons: {
-		flex: 1,
+		flexGrow: 0,
+		flexShirink: 1,
+		flexBasis: "auto",
 		flexDirection: "row",
 	},
 	borderRight: {

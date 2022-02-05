@@ -11,14 +11,13 @@ import { MatchInfo, ClimbLevel, writeMatch } from "../util/database";
 const style = StyleSheet.create({
 	outer: {
 		backgroundColor: "#08080C",
-		flex: 1,
 		flexDirection: "column",
 		padding: 24,
 	},
 	inner: {
-		flex: 1,
 		flexDirection: "row",
 		flexWrap: "wrap",
+		
 	},
 	header: {
 		fontSize: 24,
@@ -71,24 +70,6 @@ export default function Match(): JSX.Element {
 		<ScrollView style={style.outer}>
 			<Text style={style.header}>General</Text>
 			<View style={style.inner}>
-				<NumberLine
-					setState={(s) => {
-						setState({ ...state, match: s });
-					}}
-					state={state.match}
-					label="Match Number"
-				/>
-			</View>
-			<View style={style.inner}>
-				<NumberLine
-					setState={(s) => {
-						setState({ ...state, team: s });
-					}}
-					state={state.team}
-					label="Team Number"
-				/>
-			</View>
-			<View style={style.inner}>
 				<Choice
 					options={["Practice", "Qualification"]}
 					setState={(n) => {
@@ -110,7 +91,26 @@ export default function Match(): JSX.Element {
 					}
 					label="Match Type"
 				/>
+			{/* </View>
+			<View style={style.inner}> */}
+				<NumberLine
+					setState={(s) => {
+						setState({ ...state, match: s });
+					}}
+					state={state.match}
+					label="Match Number"
+				/>
+			{/* </View>
+			<View style={style.inner}> */}
+				<NumberLine
+					setState={(s) => {
+						setState({ ...state, team: s });
+					}}
+					state={state.team}
+					label="Team Number"
+				/>
 			</View>
+
 			<Text style={style.header}>Autonomous</Text>
 			<View style={style.inner}>
 				<Switch
