@@ -1,16 +1,15 @@
 import React from "react";
-import { StyleSheet, Text, ScrollView, View, Button } from "react-native";
+import { StyleSheet, Text, View, Button } from "react-native";
 import NumberLine from "../components/NumberLine";
 import TextBox from "../components/TextBox";
 import Choice from "../components/Choice";
 import Switch from "../components/Switch";
 import NumberUpDown from "../components/NumberUpDown";
 
-import { MatchInfo, ClimbLevel, writeMatch } from "../util/database";
+import { MatchInfo, ClimbLevel, readMatch, writeMatch } from "../util/database";
 
 const style = StyleSheet.create({
 	outer: {
-		backgroundColor: "#08080C",
 		flex: 1,
 		flexDirection: "column",
 		padding: 24,
@@ -67,8 +66,24 @@ export default function Match(): JSX.Element {
 		notes: "",
 	});
 
+	React.useEffect(() => {
+		if (
+			state.match !== undefined &&
+			state.matchCategory !== undefined &&
+			state.team !== undefined
+		) {
+			readMatch(state.match, state.matchCategory, state.team).then(
+				(match) => {
+					if (match !== undefined) {
+						setState(match);
+					}
+				},
+			);
+		}
+	}, [state]);
+
 	return (
-		<ScrollView style={style.outer}>
+		<View style={style.outer}>
 			<Text style={style.header}>General</Text>
 			<View style={style.inner}>
 				<NumberLine
@@ -307,6 +322,6 @@ export default function Match(): JSX.Element {
 			<Text style={style.header}>
 				This is padding please ignore it because react native is bad.
 			</Text>
-		</ScrollView>
+		</View>
 	);
 }
