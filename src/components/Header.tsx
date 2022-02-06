@@ -17,8 +17,8 @@ const style = StyleSheet.create({
 export type PageState = "match" | "sync";
 
 interface HeaderProps {
-	setPage: (page: PageState) => void,
-};
+	setPage: (page: PageState) => void;
+}
 
 export default function Header(props: HeaderProps): JSX.Element {
 	return (
