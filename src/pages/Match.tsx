@@ -253,7 +253,7 @@ export default function Match(): JSX.Element {
 			<View style={style.inner}>
 				<Choice
 					setState={(s) =>
-						setState({ ...state, speed: s ? s / 4 : undefined })
+						setState({ ...state, speed: s})
 					}
 					state={state.speed}
 					options={["1", "2", "3", "4", "5"]}
@@ -261,7 +261,7 @@ export default function Match(): JSX.Element {
 				/>
 				<Choice
 					setState={(s) =>
-						setState({ ...state, stability: s ? s / 4 : undefined })
+						setState({ ...state, stability: s})
 					}
 					state={state.stability}
 					options={["1", "2", "3", "4", "5"]}
@@ -269,7 +269,7 @@ export default function Match(): JSX.Element {
 				/>
 				<Choice
 					setState={(s) =>
-						setState({ ...state, defense: s ? s / 4 : undefined })
+						setState({ ...state, defense: s})
 					}
 					state={state.defense}
 					options={["1", "2", "3", "4", "5"]}
