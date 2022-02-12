@@ -37,9 +37,15 @@ export interface MatchInfo {
 	notes: string;
 }
 
+export type Size = 0 | 1 | 2;
+
 export interface RobotInfo {
-	type: "robot_info";
-	team: number;
+	type?: "robot_info";
+	team?: number;
+	size?: Size;
+	appearance?: number;
+	pitCrewSkill?: number;
+	robotDone?: boolean;
 	// TODO
 }
 
