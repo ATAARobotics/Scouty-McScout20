@@ -10,7 +10,7 @@ import { MatchInfo, ClimbLevel, writeMatch } from "../util/database";
 
 const style = StyleSheet.create({
 	outer: {
-		backgroundColor: "#08080C",
+		backgroundColor: "#262626",
 		flexDirection: "column",
 		padding: 24,
 	},
@@ -24,7 +24,7 @@ const style = StyleSheet.create({
 		marginTop: 24,
 		paddingTop: 12,
 		borderTopWidth: 1,
-		borderTopColor: "#c0c0c0",
+		borderTopColor: "#e6e6e6",
 		color: "#ffffff",
 	},
 });
@@ -177,7 +177,7 @@ export default function Match(): JSX.Element {
 							teleop: { ...state.teleop, cellsAcquired: s },
 						})
 					}
-					state={state.teleop.highGoalShots}
+					state={state.teleop.cellsAcquired}
 					label="Cells Picked Up"
 				/>
 				<NumberUpDown
