@@ -6,9 +6,11 @@ const style = StyleSheet.create({
 		color: "#ffffff",
 	},
 	container: {
-		flex: 1,
+		//flex: 1,
 		flexDirection: "column",
 		marginRight: 12,
+		marginVertical: 6, 
+		alignItems: "center",
 	},
 	panel: {
 		flex: 1,

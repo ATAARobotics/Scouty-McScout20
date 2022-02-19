@@ -10,7 +10,7 @@ export interface MatchInfo {
 	matchCategory: MatchType | undefined;
 	team: number | undefined;
 	auto: {
-		exitedTarmac: boolean;
+		exitedTarmac?: boolean;
 		startingLocation: "left" | "middle" | "right" | undefined;
 		cellsAcquired: number;
 		cellsDropped: number;
@@ -26,14 +26,14 @@ export interface MatchInfo {
 	climb: {
 		highestAttempted: ClimbLevel;
 		highestScored: ClimbLevel;
-		fell: boolean;
+		fell?: boolean;
 	};
 	speed: number | undefined;
 	stability: number | undefined;
 	defense: number | undefined;
-	isPrimaryDefence: boolean;
-	wasBroken: boolean;
-	wasDisabled: boolean;
+	isPrimaryDefence?: boolean;
+	wasBroken?: boolean;
+	wasDisabled?: boolean;
 	notes: string;
 }
 
