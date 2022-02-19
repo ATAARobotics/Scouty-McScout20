@@ -1,31 +1,30 @@
 import React from "react";
-import { Image, View, StyleSheet } from "react-native";
+import { Image, Button, View, StyleSheet } from "react-native";
 
 const style = StyleSheet.create({
-	image: {
+	main: {
 		flex: 1,
-		width: 75,
-		height: 75,
-		paddingRight: 130,
-		marginRight: "100%",
-		resizeMode: "contain",
+		flexDirection: "row",
+		height: 100,
+		backgroundColor: "#404050",
+	},
+	image: {
+		height: 100,
+		width: 140,
 	},
 });
 
-export default function Header(): JSX.Element {
-	return (
-		<View
-			style={{
-				flex: 1,
-				flexDirection: "row",
-				borderWidth: 24,
-				borderBottomWidth: 0,
-				marginBottom: 0,
+export type PageState = "match" | "sync";
 
-				borderColor: "#ffffff",
-			}}
-		>
-			<Image source={require("../assets/ataa.png")} style={style.image} />
+interface HeaderProps {
+	setPage: (page: PageState) => void;
+}
+
+export default function Header(props: HeaderProps): JSX.Element {
+	return (
+		<View style={style.main}>
+			<Image source={require("../../assets/ataa.png")} style={style.image} />
+			<Button title="Sync" onPress={() => props.setPage("sync")} />
 		</View>
 	);
 }

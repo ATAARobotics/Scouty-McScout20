@@ -97,12 +97,16 @@ export async function readMatch(
 	match: number,
 	matchCategory: MatchType,
 	team: number,
-): Promise<MatchInfo> {
-	return JSON.parse(
+): Promise<MatchInfo | undefined> {
+	const matchData = JSON.parse(
 		(await AsyncStorage.getItem(
 			getIdFromMatchInfo(match, matchCategory, team),
 		)) || "null",
 	);
+	if (matchData === null) {
+		return undefined;
+	}
+	return matchData;
 }
 
 /**
