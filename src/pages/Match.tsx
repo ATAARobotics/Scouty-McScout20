@@ -10,21 +10,21 @@ import { MatchInfo, ClimbLevel, readMatch, writeMatch } from "../util/database";
 
 const style = StyleSheet.create({
 	outer: {
-		flex: 1,
+		backgroundColor: "#262626",
 		flexDirection: "column",
 		padding: 24,
 	},
 	inner: {
-		flex: 1,
 		flexDirection: "row",
 		flexWrap: "wrap",
+
 	},
 	header: {
 		fontSize: 24,
 		marginTop: 24,
 		paddingTop: 12,
 		borderTopWidth: 1,
-		borderTopColor: "#c0c0c0",
+		borderTopColor: "#e6e6e6",
 		color: "#ffffff",
 	},
 });
@@ -86,24 +86,6 @@ export default function Match(): JSX.Element {
 		<View style={style.outer}>
 			<Text style={style.header}>General</Text>
 			<View style={style.inner}>
-				<NumberLine
-					setState={(s) => {
-						setState({ ...state, match: s });
-					}}
-					state={state.match}
-					label="Match Number"
-				/>
-			</View>
-			<View style={style.inner}>
-				<NumberLine
-					setState={(s) => {
-						setState({ ...state, team: s });
-					}}
-					state={state.team}
-					label="Team Number"
-				/>
-			</View>
-			<View style={style.inner}>
 				<Choice
 					options={["Practice", "Qualification"]}
 					setState={(n) => {
@@ -125,7 +107,26 @@ export default function Match(): JSX.Element {
 					}
 					label="Match Type"
 				/>
+			{/* </View>
+			<View style={style.inner}> */}
+				<NumberLine
+					setState={(s) => {
+						setState({ ...state, match: s });
+					}}
+					state={state.match}
+					label="Match Number"
+				/>
+			{/* </View>
+			<View style={style.inner}> */}
+				<NumberLine
+					setState={(s) => {
+						setState({ ...state, team: s });
+					}}
+					state={state.team}
+					label="Team Number"
+				/>
 			</View>
+
 			<Text style={style.header}>Autonomous</Text>
 			<View style={style.inner}>
 				<Switch
@@ -192,7 +193,7 @@ export default function Match(): JSX.Element {
 							teleop: { ...state.teleop, cellsAcquired: s },
 						})
 					}
-					state={state.teleop.highGoalShots}
+					state={state.teleop.cellsAcquired}
 					label="Cells Picked Up"
 				/>
 				<NumberUpDown
@@ -268,7 +269,7 @@ export default function Match(): JSX.Element {
 			<View style={style.inner}>
 				<Choice
 					setState={(s) =>
-						setState({ ...state, speed: s ? s / 4 : undefined })
+						setState({ ...state, speed: s})
 					}
 					state={state.speed}
 					options={["1", "2", "3", "4", "5"]}
@@ -276,7 +277,7 @@ export default function Match(): JSX.Element {
 				/>
 				<Choice
 					setState={(s) =>
-						setState({ ...state, stability: s ? s / 4 : undefined })
+						setState({ ...state, stability: s})
 					}
 					state={state.stability}
 					options={["1", "2", "3", "4", "5"]}
@@ -284,7 +285,7 @@ export default function Match(): JSX.Element {
 				/>
 				<Choice
 					setState={(s) =>
-						setState({ ...state, defense: s ? s / 4 : undefined })
+						setState({ ...state, defense: s})
 					}
 					state={state.defense}
 					options={["1", "2", "3", "4", "5"]}
