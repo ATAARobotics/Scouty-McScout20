@@ -107,8 +107,6 @@ export default function Match(): JSX.Element {
 					}
 					label="Match Type"
 				/>
-			{/* </View>
-			<View style={style.inner}> */}
 				<NumberLine
 					setState={(s) => {
 						setState({ ...state, match: s });
@@ -116,8 +114,6 @@ export default function Match(): JSX.Element {
 					state={state.match}
 					label="Match Number"
 				/>
-			{/* </View>
-			<View style={style.inner}> */}
 				<NumberLine
 					setState={(s) => {
 						setState({ ...state, team: s });

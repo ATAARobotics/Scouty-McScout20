@@ -46,6 +46,8 @@ export interface RobotInfo {
 	appearance?: number;
 	pitCrewSkill?: number;
 	robotDone?: boolean;
+	broken?: boolean;
+	notes?: string;
 	// TODO
 }
 
