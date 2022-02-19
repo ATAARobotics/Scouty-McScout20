@@ -2,7 +2,7 @@ import React from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-import { MatchInfo } from "../util/database";
+import { MatchInfo, writeMatch } from "../util/database";
 
 const style = StyleSheet.create({
 	view: {
@@ -30,10 +30,13 @@ async function gatherInfo(): Promise<MatchInfo[]> {
 }
 
 async function updateInfo(info: MatchInfo[]): Promise<boolean> {
-	return false;
+	for (const match of info) {
+		writeMatch(match);
+	}
+	return true;
 }
 
-const API_ENDPOINT = "/api/";
+const API_ENDPOINT = "http://localhost:4421/api/";
 
 export default function Sync(props: HeaderProps): JSX.Element {
 	const [state, setState] = React.useState<
@@ -115,7 +118,7 @@ export default function Sync(props: HeaderProps): JSX.Element {
 				props.done();
 			})
 			.catch((err) => {
-				console.error("Catch");
+				console.error("Catch: ", err);
 				setError(err.message);
 				setState("failed");
 			});
