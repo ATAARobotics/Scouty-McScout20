@@ -6,12 +6,14 @@ const style = StyleSheet.create({
 		color: "#ffffff",
 	},
 	container: {
-		flex: 1,
+		//flex: 1,
 		marginRight: 12,
+		marginVertical: 6, 
+		alignItems: "center"
 	},
 	buttons: {
 		flexGrow: 0,
-		flexShirink: 1,
+		flexShrink: 1,
 		flexBasis: "auto",
 		flexDirection: "row",
 	},

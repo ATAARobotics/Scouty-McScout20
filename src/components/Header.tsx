@@ -14,7 +14,7 @@ const style = StyleSheet.create({
 	},
 });
 
-export type PageState = "match" | "sync";
+export type PageState = "match" | "sync" | "pit";
 
 interface HeaderProps {
 	setPage: (page: PageState) => void;
@@ -24,6 +24,9 @@ export default function Header(props: HeaderProps): JSX.Element {
 	return (
 		<View style={style.main}>
 			<Image source={require("../../assets/ataa.png")} style={style.image} />
+			<Button title="Match" onPress={() => props.setPage("match")} />
+			<Button title="Pit" onPress={() => props.setPage("pit")} />
+
 			<Button title="Sync" onPress={() => props.setPage("sync")} />
 		</View>
 	);

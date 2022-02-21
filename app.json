@@ -3,7 +3,6 @@
     "name": "Scouty-McScout22",
     "slug": "Scouty-McScout22",
     "version": "1.0.0",
-    "orientation": "landscape",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",

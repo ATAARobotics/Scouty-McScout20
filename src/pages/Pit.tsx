@@ -6,7 +6,7 @@ import Choice from "../components/Choice";
 import Switch from "../components/Switch";
 import NumberUpDown from "../components/NumberUpDown";
 
-import { RobotInfo, ClimbLevel, writeMatch, Size } from "../util/database";
+import { RobotInfo, ClimbLevel, writeMatch, Size, writeRobot } from "../util/database";
 
 
 const style = StyleSheet.create({
@@ -38,13 +38,15 @@ export default function Match(): JSX.Element {
 		type: "robot_info",
 		team: undefined,
 	    size: undefined,
-	    appearance: 0,
-	    pitCrewSkill: 0,
-	    robotDone: undefined,
+	    appearance: undefined,
+	    pitCrewSkill: undefined,
+		robotDone: undefined,
+		broken: undefined,
+		notes: undefined,
 	});
 
 	return (
-		<ScrollView style={style.outer}>
+		<View style={style.outer}>
 			<View style={style.inner}>
 				<NumberLine
 					setState={(s) => {
@@ -81,11 +83,33 @@ export default function Match(): JSX.Element {
 					label="Pit Crew Skill"
 				/>
                 <Switch
-					setState={(s) => setState({ ...state, robotDone: s })}
+					setState={(s) => setState({ ...state, robotDone: s})}
 					state={state.robotDone}
 					label="Is Robot Done?"
 				/>
+				<Switch
+					setState={(s) => setState({ ...state, broken: s})}
+					state={state.broken}
+					label="Anything broken?"
+				/>	
 			</View>
-		</ScrollView>
+			<View style={style.inner}>
+				<TextBox
+				setState={(s) => setState({ ...state, notes: s })}
+				state={state.notes}
+				label="Notes and Comments"
+				/>
+				</View>
+				<View style={style.inner}>
+				<Button
+				title="Save"
+				onPress={() =>
+					writeRobot(state).then((success) =>
+						console.log("Wrote the match: ", success),
+					)
+				}
+				/>
+				</View>
+		</View>
 	);
 }

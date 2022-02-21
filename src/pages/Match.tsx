@@ -17,6 +17,7 @@ const style = StyleSheet.create({
 	inner: {
 		flexDirection: "row",
 		flexWrap: "wrap",
+		justifyContent: "space-around",
 
 	},
 	header: {
@@ -39,7 +40,7 @@ export default function Match(): JSX.Element {
 		matchCategory: undefined,
 		team: undefined,
 		auto: {
-			exitedTarmac: false,
+			exitedTarmac: undefined,
 			startingLocation: undefined,
 			cellsAcquired: 0,
 			cellsDropped: 0,
@@ -55,14 +56,14 @@ export default function Match(): JSX.Element {
 		climb: {
 			highestAttempted: 0,
 			highestScored: 0,
-			fell: false,
+			fell: undefined,
 		},
 		speed: undefined,
 		stability: undefined,
 		defense: undefined,
-		isPrimaryDefence: false,
-		wasDisabled: false,
-		wasBroken: false,
+		isPrimaryDefence: undefined,
+		wasDisabled: undefined,
+		wasBroken: undefined,
 		notes: "",
 	});
 
@@ -107,8 +108,6 @@ export default function Match(): JSX.Element {
 					}
 					label="Match Type"
 				/>
-			{/* </View>
-			<View style={style.inner}> */}
 				<NumberLine
 					setState={(s) => {
 						setState({ ...state, match: s });
@@ -116,8 +115,6 @@ export default function Match(): JSX.Element {
 					state={state.match}
 					label="Match Number"
 				/>
-			{/* </View>
-			<View style={style.inner}> */}
 				<NumberLine
 					setState={(s) => {
 						setState({ ...state, team: s });
@@ -143,6 +140,8 @@ export default function Match(): JSX.Element {
 					options={["Left", "Middle", "Right"]}
 					label="Starting Location"
 				/>
+				</View>
+				<View style={style.inner}>
 				<NumberUpDown
 					setState={(s) =>
 						setState({
@@ -321,7 +320,7 @@ export default function Match(): JSX.Element {
 				}
 			/>
 			<Text style={style.header}>
-				This is padding please ignore it because react native is bad.
+
 			</Text>
 		</View>
 	);

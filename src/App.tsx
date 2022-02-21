@@ -5,6 +5,7 @@ import { PageState } from "./components/Header";
 import Header from "./components/Header";
 import Match from "./pages/Match";
 import Sync from "./pages/Sync";
+import Pit from "./pages/Pit"
 
 const style = StyleSheet.create({
 	main: {
@@ -18,6 +19,8 @@ function renderPage(state: PageState, setState: (state: PageState) => void): JSX
 			return <Match />;
 		case "sync":
 			return <Sync done={() => setState("match")} />;
+		case "pit": 
+			return <Pit />;
 	}
 }
 
