@@ -18,7 +18,6 @@ const style = StyleSheet.create({
 		flexDirection: "row",
 		flexWrap: "wrap",
 		justifyContent: "space-around",
-
 	},
 	header: {
 		fontSize: 24,
@@ -140,8 +139,8 @@ export default function Match(): JSX.Element {
 					options={["Left", "Middle", "Right"]}
 					label="Starting Location"
 				/>
-				</View>
-				<View style={style.inner}>
+			</View>
+			<View style={style.inner}>
 				<NumberUpDown
 					setState={(s) =>
 						setState({
@@ -267,25 +266,19 @@ export default function Match(): JSX.Element {
 			<Text style={style.header}>General</Text>
 			<View style={style.inner}>
 				<Choice
-					setState={(s) =>
-						setState({ ...state, speed: s})
-					}
+					setState={(s) => setState({ ...state, speed: s })}
 					state={state.speed}
 					options={["1", "2", "3", "4", "5"]}
 					label="Speedyboi"
 				/>
 				<Choice
-					setState={(s) =>
-						setState({ ...state, stability: s})
-					}
+					setState={(s) => setState({ ...state, stability: s })}
 					state={state.stability}
 					options={["1", "2", "3", "4", "5"]}
 					label="Stability"
 				/>
 				<Choice
-					setState={(s) =>
-						setState({ ...state, defense: s})
-					}
+					setState={(s) => setState({ ...state, defense: s })}
 					state={state.defense}
 					options={["1", "2", "3", "4", "5"]}
 					label="Defense"
@@ -319,9 +312,7 @@ export default function Match(): JSX.Element {
 					)
 				}
 			/>
-			<Text style={style.header}>
-
-			</Text>
+			<Text style={style.header}></Text>
 		</View>
 	);
 }

@@ -3,7 +3,6 @@ import { StyleSheet, Text, TextInput, View } from "react-native";
 
 const style = StyleSheet.create({
 	container: {
-		//flex: 1,
 		flexDirection: "column",
 		marginRight: 12,
 		alignItems: "center",

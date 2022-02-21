@@ -1,13 +1,11 @@
 import React from "react";
-import { StyleSheet, Text, ScrollView, View, Button } from "react-native";
+import { StyleSheet, Text, View, Button } from "react-native";
 import NumberLine from "../components/NumberLine";
 import TextBox from "../components/TextBox";
 import Choice from "../components/Choice";
 import Switch from "../components/Switch";
-import NumberUpDown from "../components/NumberUpDown";
 
-import { RobotInfo, ClimbLevel, writeMatch, Size, writeRobot } from "../util/database";
-
+import { RobotInfo, Size, writeRobot } from "../util/database";
 
 const style = StyleSheet.create({
 	outer: {
@@ -18,7 +16,6 @@ const style = StyleSheet.create({
 	inner: {
 		flexDirection: "row",
 		flexWrap: "wrap",
-		
 	},
 	header: {
 		fontSize: 24,
@@ -30,16 +27,13 @@ const style = StyleSheet.create({
 	},
 });
 
-/**
- *
- */
 export default function Match(): JSX.Element {
 	const [state, setState] = React.useState<RobotInfo>({
 		type: "robot_info",
 		team: undefined,
-	    size: undefined,
-	    appearance: undefined,
-	    pitCrewSkill: undefined,
+		size: undefined,
+		appearance: undefined,
+		pitCrewSkill: undefined,
 		robotDone: undefined,
 		broken: undefined,
 		notes: undefined,
@@ -60,56 +54,52 @@ export default function Match(): JSX.Element {
 			<View style={style.inner}>
 				<Choice
 					setState={(s) =>
-						setState({ ...state, size: (s ? s : undefined ) as Size})
+						setState({ ...state, size: (s ? s : undefined) as Size })
 					}
 					state={state.size}
 					options={["Small", "Medium", "Large"]}
 					label="Size"
 				/>
 				<Choice
-					setState={(s) =>
-						setState({ ...state, appearance: s})
-					}
+					setState={(s) => setState({ ...state, appearance: s })}
 					state={state.appearance}
 					options={["1", "2", "3", "4", "5"]}
 					label="Overall Apperance"
 				/>
 				<Choice
-					setState={(s) =>
-						setState({ ...state, pitCrewSkill: s})
-					}
+					setState={(s) => setState({ ...state, pitCrewSkill: s })}
 					state={state.pitCrewSkill}
 					options={["1", "2", "3", "4", "5"]}
 					label="Pit Crew Skill"
 				/>
-                <Switch
-					setState={(s) => setState({ ...state, robotDone: s})}
+				<Switch
+					setState={(s) => setState({ ...state, robotDone: s })}
 					state={state.robotDone}
 					label="Is Robot Done?"
 				/>
 				<Switch
-					setState={(s) => setState({ ...state, broken: s})}
+					setState={(s) => setState({ ...state, broken: s })}
 					state={state.broken}
 					label="Anything broken?"
-				/>	
+				/>
 			</View>
 			<View style={style.inner}>
 				<TextBox
-				setState={(s) => setState({ ...state, notes: s })}
-				state={state.notes}
-				label="Notes and Comments"
+					setState={(s) => setState({ ...state, notes: s })}
+					state={state.notes}
+					label="Notes and Comments"
 				/>
-				</View>
-				<View style={style.inner}>
+			</View>
+			<View style={style.inner}>
 				<Button
-				title="Save"
-				onPress={() =>
-					writeRobot(state).then((success) =>
-						console.log("Wrote the match: ", success),
-					)
-				}
+					title="Save"
+					onPress={() =>
+						writeRobot(state).then((success) =>
+							console.log("Wrote the match: ", success),
+						)
+					}
 				/>
-				</View>
+			</View>
 		</View>
 	);
 }
