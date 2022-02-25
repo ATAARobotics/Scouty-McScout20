@@ -51,11 +51,6 @@ interface ChoiceProps {
  */
 export default function Choice(props: ChoiceProps): JSX.Element {
 	const [choice, setChoice] = React.useState<number>();
-	React.useEffect(() => {
-		if (props.setState) {
-			props.setState(choice);
-		}
-	}, [choice]);
 	return (
 		<View style={style.container}>
 			<Text style={style.label}>{props.label}</Text>
@@ -74,7 +69,12 @@ export default function Choice(props: ChoiceProps): JSX.Element {
 								? style.borderRight
 								: {},
 						]}
-						onPress={() => setChoice(index)}
+						onPress={() => {
+							if (props.setState !== undefined) {
+								props.setState(index);
+							}
+							setChoice(index);
+						}}
 					>
 						<Text style={style.buttonText}>{label}</Text>
 					</Pressable>

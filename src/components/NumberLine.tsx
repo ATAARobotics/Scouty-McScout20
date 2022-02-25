@@ -41,15 +41,17 @@ export default function NumberLine(props: NumberLineProps): JSX.Element {
 					if (value === "") {
 						if (props.setState) {
 							props.setState(undefined);
+						} else {
+							setNumber(undefined);
 						}
-						setNumber(undefined);
 					} else {
 						const number = parseInt(value);
 						if (!isNaN(number)) {
 							if (props.setState) {
 								props.setState(number);
+							} else {
+								setNumber(number);
 							}
-							setNumber(number);
 						}
 					}
 				}}

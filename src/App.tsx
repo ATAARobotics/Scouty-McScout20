@@ -21,8 +21,9 @@ function renderPage(
 			return <Match />;
 		case "sync":
 			return <Sync done={() => setState("match")} />;
-		case "pit":
-			return <Pit />;
+		// Pit scouting isn't a thing this year :)
+		// case "pit":
+		// 	return <Pit />;
 	}
 }
 

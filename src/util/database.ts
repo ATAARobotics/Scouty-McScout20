@@ -10,7 +10,7 @@ export interface MatchInfo {
 	matchCategory: MatchType | undefined;
 	team: number | undefined;
 	auto: {
-		exitedTarmac?: boolean;
+		exitedTarmac: boolean;
 		startingLocation: "left" | "middle" | "right" | undefined;
 		cellsAcquired: number;
 		cellsDropped: number;
@@ -24,17 +24,19 @@ export interface MatchInfo {
 		highGoalShots: number;
 	};
 	climb: {
+		startedBeforeEndgame: boolean;
 		highestAttempted: ClimbLevel;
 		highestScored: ClimbLevel;
-		fell?: boolean;
+		fell: boolean;
 	};
 	speed: number | undefined;
 	stability: number | undefined;
 	defense: number | undefined;
-	isPrimaryDefence?: boolean;
-	wasBroken?: boolean;
-	wasDisabled?: boolean;
+	isPrimaryDefence: boolean;
+	wasBroken: boolean;
+	wasDisabled: boolean;
 	notes: string;
+	lastModifiedTime: number;
 }
 
 export type Size = 0 | 1 | 2;
@@ -80,15 +82,15 @@ export async function writeMatch(data: MatchInfo): Promise<boolean> {
 	return true;
 }
 
-/**
- * @param data
- */
-export async function writeRobot(data: RobotInfo): Promise<void> {
-	// db.put({
-	// 	_id: [data.team],
-	// 	...data
-	// });
-}
+// /**
+//  * @param data
+//  */
+// export async function writeRobot(data: RobotInfo): Promise<void> {
+// 	// db.put({
+// 	// 	_id: [data.team],
+// 	// 	...data
+// 	// });
+// }
 
 /**
  * @param match
@@ -111,10 +113,10 @@ export async function readMatch(
 	return matchData;
 }
 
-/**
- * @param team
- */
-export async function readRobot(team: number): Promise<RobotInfo> {
-	return undefined as any as RobotInfo;
-	// return db.get(["match_info", team]);
-}
+// /**
+//  * @param team
+//  */
+// export async function readRobot(team: number): Promise<RobotInfo> {
+// 	return undefined as any as RobotInfo;
+// 	// return db.get(["match_info", team]);
+// }

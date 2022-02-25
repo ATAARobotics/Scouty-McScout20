@@ -6,7 +6,13 @@ import Choice from "../components/Choice";
 import Switch from "../components/Switch";
 import NumberUpDown from "../components/NumberUpDown";
 
-import { MatchInfo, ClimbLevel, readMatch, writeMatch } from "../util/database";
+import {
+	MatchInfo,
+	MatchType,
+	ClimbLevel,
+	readMatch,
+	writeMatch,
+} from "../util/database";
 
 const style = StyleSheet.create({
 	outer: {
@@ -32,55 +38,71 @@ const style = StyleSheet.create({
 /**
  *
  */
+const defaultState: MatchInfo = {
+	type: "match_info",
+	match: undefined,
+	matchCategory: undefined,
+	team: undefined,
+	auto: {
+		exitedTarmac: false,
+		startingLocation: undefined,
+		cellsAcquired: 0,
+		cellsDropped: 0,
+		lowGoalShots: 0,
+		highGoalShots: 0,
+	},
+	teleop: {
+		cellsAcquired: 0,
+		cellsDropped: 0,
+		lowGoalShots: 0,
+		highGoalShots: 0,
+	},
+	climb: {
+		startedBeforeEndgame: false,
+		highestAttempted: 0,
+		highestScored: 0,
+		fell: false,
+	},
+	speed: undefined,
+	stability: undefined,
+	defense: undefined,
+	isPrimaryDefence: false,
+	wasDisabled: false,
+	wasBroken: false,
+	notes: "",
+	lastModifiedTime: 0,
+};
 export default function Match(): JSX.Element {
-	const [state, setState] = React.useState<MatchInfo>({
-		type: "match_info",
-		match: undefined,
-		matchCategory: undefined,
-		team: undefined,
-		auto: {
-			exitedTarmac: undefined,
-			startingLocation: undefined,
-			cellsAcquired: 0,
-			cellsDropped: 0,
-			lowGoalShots: 0,
-			highGoalShots: 0,
-		},
-		teleop: {
-			cellsAcquired: 0,
-			cellsDropped: 0,
-			lowGoalShots: 0,
-			highGoalShots: 0,
-		},
-		climb: {
-			highestAttempted: 0,
-			highestScored: 0,
-			fell: undefined,
-		},
-		speed: undefined,
-		stability: undefined,
-		defense: undefined,
-		isPrimaryDefence: undefined,
-		wasDisabled: undefined,
-		wasBroken: undefined,
-		notes: "",
-	});
-
+	const [matchCategory, setMatchCategory] = React.useState<MatchType>();
+	const [matchNumber, setMatchNumber] = React.useState<number>();
+	const [teamNumber, setTeamNumber] = React.useState<number>();
+	const [state, setStateRaw] = React.useState<MatchInfo>(defaultState);
 	React.useEffect(() => {
 		if (
-			state.match !== undefined &&
-			state.matchCategory !== undefined &&
-			state.team !== undefined
+			matchCategory !== undefined &&
+			matchNumber !== undefined &&
+			teamNumber !== undefined
 		) {
-			readMatch(state.match, state.matchCategory, state.team).then(
-				(match) => {
-					if (match !== undefined) {
-						setState(match);
-					}
-				},
-			);
+			readMatch(matchNumber, matchCategory, teamNumber).then((match) => {
+				if (match !== undefined) {
+					setStateRaw(match);
+				} else {
+					setStateRaw({
+						...defaultState,
+						matchCategory,
+						match: matchNumber,
+						team: teamNumber,
+					});
+				}
+			});
 		}
-	}, [state]);
+	}, [matchCategory, matchNumber, teamNumber]);
+
+	const setState = (newState: MatchInfo) => {
+		newState.lastModifiedTime = Date.now();
+		console.log("State: ", newState);
+		setStateRaw(newState);
+	};
 
 	return (
 		<View style={style.outer}>
@@ -91,34 +113,30 @@ export default function Match(): JSX.Element {
 					setState={(n) => {
 						switch (n) {
 							case 0:
-								setState({ ...state, matchCategory: "practice" });
+								setMatchCategory("practice");
 								break;
 							case 1:
-								setState({ ...state, matchCategory: "qualification" });
+								setMatchCategory("qualification");
 								break;
 						}
 					}}
 					state={
-						state.matchCategory === undefined
+						matchCategory === undefined
 							? undefined
-							: state.matchCategory === "practice"
+							: matchCategory === "practice"
 							? 0
 							: 1
 					}
 					label="Match Type"
 				/>
 				<NumberLine
-					setState={(s) => {
-						setState({ ...state, match: s });
-					}}
-					state={state.match}
+					setState={setMatchNumber}
+					state={matchNumber}
 					label="Match Number"
 				/>
 				<NumberLine
-					setState={(s) => {
-						setState({ ...state, team: s });
-					}}
-					state={state.team}
+					setState={setTeamNumber}
+					state={teamNumber}
 					label="Team Number"
 				/>
 			</View>
@@ -227,6 +245,16 @@ export default function Match(): JSX.Element {
 			</View>
 			<Text style={style.header}>Climb</Text>
 			<View style={style.inner}>
+				<Switch
+					setState={(s) =>
+						setState({
+							...state,
+							climb: { ...state.climb, startedBeforeEndgame: s },
+						})
+					}
+					state={state.climb.startedBeforeEndgame}
+					label="Started Before Endgame"
+				/>
 				<Choice
 					setState={(s) =>
 						setState({
