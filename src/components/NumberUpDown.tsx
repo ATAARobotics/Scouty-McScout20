@@ -38,18 +38,20 @@ interface NumberUpDownProps {
  * @param props
  */
 export default function NumberUpDown(props: NumberUpDownProps): JSX.Element {
-	const [value, setValue] = React.useState(0);
-	React.useEffect(() => {
+	const [value, setValueRaw] = React.useState(props.state ?? 0);
+	const setValue = (newValue: number) => {
 		if (props.setState) {
-			props.setState(value);
+			props.setState(newValue);
 		}
-	}, [value]);
+		setValueRaw(newValue);
+	};
+	const actualValue = props.state ?? value;
 	return (
 		<View style={style.container}>
 			<Text style={style.label}>{props.label}</Text>
 			<View style={style.panel}>
 				<Button
-					onPress={() => setValue(Math.max(value - 1, 0))}
+					onPress={() => setValue(Math.max(actualValue - 1, 0))}
 					title="  - "
 					color="#ea3017"
 				/>
@@ -65,14 +67,10 @@ export default function NumberUpDown(props: NumberUpDownProps): JSX.Element {
 							setValue(Math.min(Math.max(number, 0), 100));
 						}
 					}}
-					value={
-						props.state === undefined
-							? value.toString()
-							: props.state.toString()
-					}
+					value={actualValue.toString()}
 				/>
 				<Button
-					onPress={() => setValue(Math.min(value + 1, 100))}
+					onPress={() => setValue(Math.min(actualValue + 1, 100))}
 					title=" + "
 					color="#4cea17"
 				/>
